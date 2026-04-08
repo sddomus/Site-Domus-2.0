@@ -1,33 +1,56 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Link from 'next/link';
-import { Hexagon, Menu, X } from 'lucide-react';
+import Image from 'next/image';
+import { Menu, X } from 'lucide-react';
 
 export function Header() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => setScrolled(window.scrollY > 24);
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   return (
-    <header className="fixed top-0 w-full z-50 glass-effect">
+    <header
+      className={`fixed top-0 w-full z-50 transition-all duration-300 ${
+        scrolled
+          ? 'bg-[#080028]/80 backdrop-blur-2xl border-b border-[#FFCC99]/15 shadow-[0_4px_24px_rgba(0,0,0,0.4)]'
+          : 'bg-transparent backdrop-blur-md border-b border-transparent'
+      }`}
+    >
       <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
         {/* Logo */}
         <Link href="/" className="flex items-center group">
-          <img 
-            src="/logo-domus.png" 
-            alt="Domus Soluções Digitais - Logo" 
-            className="h-[56px] w-auto object-contain group-hover:scale-105 transition-transform duration-300 flex-shrink-0" 
+          <Image
+            src="/logo-horizontal.png"
+            alt="Domus Soluções Digitais"
+            width={220}
+            height={44}
+            className="h-[44px] w-auto object-contain group-hover:opacity-80 transition-opacity duration-300"
+            priority
           />
         </Link>
 
         {/* Desktop Nav */}
         <nav className="hidden md:flex items-center gap-8">
-          {['Serviços', 'Metodologia', 'Casos de Sucesso'].map((item) => (
+          {[
+            { label: 'Serviços', href: '#servicos' },
+            { label: 'Sobre Nós', href: '#sobre-nos' },
+            { label: 'Metodologia', href: '#metodologia' },
+            { label: 'Casos de Sucesso', href: '#casos-de-sucesso' },
+          ].map((item) => (
             <Link
-              key={item}
-              href={`#${item.toLowerCase().replace(/\s+/g, '-')}`}
-              className="text-sm font-medium text-gray-300 hover:text-[#FFCC99] transition-colors"
+              key={item.label}
+              href={item.href}
+              className="text-sm font-medium text-gray-300 hover:text-[#FFCC99] transition-colors relative group/link"
             >
-              {item}
+              {item.label}
+              <span className="absolute -bottom-0.5 left-0 w-0 h-px bg-[#FFCC99] group-hover/link:w-full transition-all duration-300" />
             </Link>
           ))}
         </nav>
@@ -53,16 +76,21 @@ export function Header() {
 
       {/* Mobile Nav */}
       {isMobileMenuOpen && (
-        <div className="md:hidden glass-effect border-t border-[#FFCC99]/10">
+        <div className="md:hidden bg-[#080028]/95 backdrop-blur-xl border-t border-[#FFCC99]/10">
           <nav className="flex flex-col px-6 py-4 gap-4">
-            {['Serviços', 'Metodologia', 'Casos de Sucesso'].map((item) => (
+            {[
+              { label: 'Serviços', href: '#servicos' },
+              { label: 'Sobre Nós', href: '#sobre-nos' },
+              { label: 'Metodologia', href: '#metodologia' },
+              { label: 'Casos de Sucesso', href: '#casos-de-sucesso' },
+            ].map((item) => (
               <Link
-                key={item}
-                href={`#${item.toLowerCase().replace(/\s+/g, '-')}`}
+                key={item.label}
+                href={item.href}
                 className="text-sm font-medium text-gray-300 hover:text-[#FFCC99] transition-colors"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
-                {item}
+                {item.label}
               </Link>
             ))}
             <Link

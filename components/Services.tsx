@@ -8,7 +8,7 @@ export function Services() {
     <section id="servicos" className="px-6 max-w-7xl mx-auto w-full">
       <div className="mb-16">
         <h2 className="text-3xl md:text-5xl font-bold tracking-tight text-white mb-4">
-          Nossas <span className="text-[#FFCC99]">Especialidades</span>
+          Nossas <span className="animate-gradient-text">Especialidades</span>
         </h2>
         <p className="text-gray-400 text-lg max-w-2xl font-light">
           Desenvolvemos soluções robustas com design focado em conversão, utilizando as melhores tecnologias do mercado.
@@ -33,7 +33,7 @@ export function Services() {
               Automatize processos e centralize a gestão da sua empresa com ERPs e CRMs personalizados, desenvolvidos para escalar junto com o seu negócio.
             </p>
           </div>
-          
+
           {/* Abstract Visual: Database/Dashboard */}
           <div className="absolute right-10 top-1/2 -translate-y-1/2 w-56 h-48 hidden md:flex flex-col gap-3 opacity-30 group-hover:opacity-80 transition-opacity duration-300 pointer-events-none">
             <div className="w-full h-12 glass-effect border border-white/10 rounded-lg flex items-center px-4 gap-3 transform translate-x-4">
@@ -138,11 +138,10 @@ export function Services() {
               Desenvolvemos agentes de inteligência artificial capazes de raciocinar, tomar decisões e executar fluxos de trabalho complexos de forma autônoma e ininterrupta.
             </p>
           </div>
-          
+
           {/* Abstract Network Visual */}
           <div className="absolute right-0 top-1/2 -translate-y-1/2 w-64 h-64 hidden md:block opacity-40 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
             <div className="absolute inset-0">
-              {/* Connections */}
               <svg className="absolute inset-0 w-full h-full" xmlns="http://www.w3.org/2000/svg">
                 <line x1="20%" y1="20%" x2="50%" y2="50%" stroke="rgba(255,204,153,0.1)" strokeWidth="1" />
                 <line x1="80%" y1="30%" x2="50%" y2="50%" stroke="rgba(255,204,153,0.1)" strokeWidth="1" />
@@ -151,14 +150,12 @@ export function Services() {
                 <line x1="20%" y1="20%" x2="80%" y2="30%" stroke="rgba(255,204,153,0.05)" strokeWidth="1" />
                 <line x1="30%" y1="80%" x2="70%" y2="70%" stroke="rgba(255,204,153,0.05)" strokeWidth="1" />
               </svg>
-              
-              {/* Nodes */}
+
               <div className="absolute top-[20%] left-[20%] -translate-x-1/2 -translate-y-1/2 w-3 h-3 rounded-full glass-effect bg-[#FFCC99]/20 animate-pulse" style={{ animationDuration: '2s' }} />
               <div className="absolute top-[30%] left-[80%] -translate-x-1/2 -translate-y-1/2 w-4 h-4 rounded-full glass-effect bg-[#FFCC99]/20 animate-pulse" style={{ animationDuration: '3s' }} />
               <div className="absolute top-[80%] left-[30%] -translate-x-1/2 -translate-y-1/2 w-3 h-3 rounded-full glass-effect bg-[#FFCC99]/20 animate-pulse" style={{ animationDuration: '1.5s' }} />
               <div className="absolute top-[70%] left-[70%] -translate-x-1/2 -translate-y-1/2 w-4 h-4 rounded-full glass-effect bg-[#FFCC99]/20 animate-pulse" style={{ animationDuration: '2.5s' }} />
-              
-              {/* Center Node */}
+
               <div className="absolute top-[50%] left-[50%] -translate-x-1/2 -translate-y-1/2 w-8 h-8 rounded-full glass-effect bg-[#FFCC99]/30 flex items-center justify-center shadow-[0_0_20px_rgba(255,204,153,0.3)]">
                 <div className="w-3 h-3 rounded-full bg-[#FFCC99] animate-ping" style={{ animationDuration: '2s' }} />
               </div>

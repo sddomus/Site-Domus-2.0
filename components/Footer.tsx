@@ -1,5 +1,6 @@
 import Link from 'next/link';
-import { Hexagon, ArrowRight } from 'lucide-react';
+import Image from 'next/image';
+import { ArrowRight } from 'lucide-react';
 
 export function Footer() {
   return (
@@ -9,12 +10,14 @@ export function Footer() {
           
           {/* Coluna 1: Logo e Missão */}
           <div className="flex flex-col gap-6">
-            <Link href="/" className="flex items-center gap-2 group w-fit">
-              <Hexagon className="w-8 h-8 text-[#FFCC99] group-hover:rotate-12 transition-transform duration-300" />
-              <span className="text-xl tracking-tight">
-                <strong className="font-bold text-white">Domus</strong>
-                <span className="font-light text-[#FFCC99]"> Soluções Digitais</span>
-              </span>
+            <Link href="/" className="group w-fit">
+              <Image
+                src="/logo-nome.png"
+                alt="Domus Soluções Digitais"
+                width={160}
+                height={36}
+                className="h-[36px] w-auto object-contain group-hover:opacity-80 transition-opacity duration-300"
+              />
             </Link>
             <p className="text-gray-400 text-sm leading-relaxed font-light">
               Transformando visão em realidade digital. Somos especialistas em criar soluções de software de alta performance e design focado em conversão.
@@ -25,10 +28,15 @@ export function Footer() {
           <div>
             <h4 className="text-white font-semibold mb-6">Empresa</h4>
             <ul className="flex flex-col gap-4">
-              {['Sobre Nós', 'Metodologia', 'Casos de Sucesso', 'Carreiras'].map((item) => (
-                <li key={item}>
-                  <Link href="#" className="text-gray-400 hover:text-[#FFCC99] text-sm transition-colors">
-                    {item}
+              {[
+                { label: 'Sobre Nós', href: '#sobre-nos' },
+                { label: 'Metodologia', href: '#metodologia' },
+                { label: 'Casos de Sucesso', href: '#casos-de-sucesso' },
+                { label: 'Contato', href: '#contato' },
+              ].map((item) => (
+                <li key={item.label}>
+                  <Link href={item.href} className="text-gray-400 hover:text-[#FFCC99] text-sm transition-colors">
+                    {item.label}
                   </Link>
                 </li>
               ))}
@@ -39,10 +47,15 @@ export function Footer() {
           <div>
             <h4 className="text-white font-semibold mb-6">Serviços</h4>
             <ul className="flex flex-col gap-4">
-              {['Sistemas Internos', 'Apps Personalizados', 'Sites de Alta Conversão', 'Agentes de IA'].map((item) => (
-                <li key={item}>
-                  <Link href="#" className="text-gray-400 hover:text-[#FFCC99] text-sm transition-colors">
-                    {item}
+              {[
+                { label: 'Sistemas Internos', href: '#servicos' },
+                { label: 'Apps Personalizados', href: '#servicos' },
+                { label: 'Sites de Alta Conversão', href: '#servicos' },
+                { label: 'Agentes de IA', href: '#servicos' },
+              ].map((item) => (
+                <li key={item.label}>
+                  <Link href={item.href} className="text-gray-400 hover:text-[#FFCC99] text-sm transition-colors">
+                    {item.label}
                   </Link>
                 </li>
               ))}
@@ -77,10 +90,10 @@ export function Footer() {
             &copy; {new Date().getFullYear()} Domus Soluções Digitais. Todos os direitos reservados.
           </p>
           <div className="flex items-center gap-6">
-            <Link href="#" className="text-gray-500 hover:text-[#FFCC99] text-sm transition-colors">
+            <Link href="/privacidade" className="text-gray-500 hover:text-[#FFCC99] text-sm transition-colors">
               Privacidade
             </Link>
-            <Link href="#" className="text-gray-500 hover:text-[#FFCC99] text-sm transition-colors">
+            <Link href="/termos" className="text-gray-500 hover:text-[#FFCC99] text-sm transition-colors">
               Termos de Uso
             </Link>
           </div>

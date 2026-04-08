@@ -2,9 +2,10 @@ import { Header } from '@/components/Header';
 import { Hero } from '@/components/Hero';
 import { TechMarquee } from '@/components/TechMarquee';
 import { Services } from '@/components/Services';
+import { About } from '@/components/About';
 import { WhyChooseUs } from '@/components/WhyChooseUs';
 import { Stats } from '@/components/Stats';
-import { Testimonials } from '@/components/Testimonials';
+import { Portfolio } from '@/components/Portfolio';
 import { FAQ } from '@/components/FAQ';
 import { Contact } from '@/components/Contact';
 import { CTA } from '@/components/CTA';
@@ -18,9 +19,10 @@ export default function Home() {
         <Hero />
         <TechMarquee />
         <Services />
+        <About />
         <WhyChooseUs />
         <Stats />
-        <Testimonials />
+        <Portfolio />
         <FAQ />
         <Contact />
         <CTA />

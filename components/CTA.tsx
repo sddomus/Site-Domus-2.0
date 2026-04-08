@@ -1,16 +1,24 @@
 'use client';
 
 import { motion } from 'motion/react';
-import Image from 'next/image';
 import Link from 'next/link';
 
 export function CTA() {
   return (
     <section className="relative overflow-hidden py-32 px-6">
-      {/* Background Glow */}
-      <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-[#FFCC99] blur-[150px] opacity-10 pointer-events-none rounded-full" />
+      {/* Aurora background */}
+      <motion.div
+        className="absolute top-1/2 left-1/3 -translate-y-1/2 w-[400px] h-[400px] rounded-full blur-[140px] opacity-[0.025] pointer-events-none bg-[#FFCC99]"
+        animate={{ x: [0, 40, -20, 0], y: [0, -30, 15, 0] }}
+        transition={{ duration: 20, repeat: Infinity, ease: 'easeInOut' }}
+      />
+      <motion.div
+        className="absolute top-1/2 right-1/3 -translate-y-1/2 w-[300px] h-[300px] rounded-full blur-[160px] opacity-[0.02] pointer-events-none bg-purple-400"
+        animate={{ x: [0, -40, 30, 0], y: [0, 25, -40, 0] }}
+        transition={{ duration: 25, repeat: Infinity, ease: 'easeInOut', delay: 4 }}
+      />
 
-      <motion.div 
+      <motion.div
         initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
@@ -20,12 +28,12 @@ export function CTA() {
         <h2 className="text-5xl md:text-6xl font-bold tracking-tighter text-white">
           Pronto para escalar sua operação?
         </h2>
-        
+
         <p className="text-xl text-gray-400 max-w-2xl mx-auto mt-6 mb-12 font-light leading-relaxed">
           Junte-se às empresas que já aceleraram sua transformação digital com a Domus. Agende uma consultoria gratuita e descubra o potencial do seu negócio.
         </p>
-        
-        <Link 
+
+        <Link
           href="#contato"
           className="relative overflow-hidden inline-block bg-[#FFCC99] text-[#080028] font-bold px-10 py-5 rounded-full text-lg hover:scale-105 hover:shadow-[0_0_30px_rgba(255,204,153,0.3)] transition-all duration-300 group"
         >
@@ -35,17 +43,18 @@ export function CTA() {
 
         {/* Social Proof */}
         <div className="mt-12 flex flex-col items-center gap-4">
-          <div className="flex -space-x-4">
-            {[1, 2, 3, 4].map((i) => (
-              <div key={i} className="w-12 h-12 rounded-full border-2 border-[#080028] overflow-hidden relative">
-                <Image 
-                  src={`https://picsum.photos/seed/avatar${i}/100/100`}
-                  alt={`Avatar ${i}`}
-                  fill
-                  className="object-cover"
-                  referrerPolicy="no-referrer"
-                />
-              </div>
+          <div className="flex -space-x-3">
+            {['CS', 'MC', 'RA', 'FB'].map((initials, i) => (
+              <motion.div
+                key={i}
+                className="w-11 h-11 rounded-full border-2 border-[#080028] bg-[#FFCC99]/10 flex items-center justify-center"
+                initial={{ opacity: 0, x: -10 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.4 + i * 0.1 }}
+              >
+                <span className="text-[#FFCC99] text-xs font-semibold">{initials}</span>
+              </motion.div>
             ))}
           </div>
           <p className="text-sm text-gray-400 font-medium">

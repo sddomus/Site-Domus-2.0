@@ -5,6 +5,7 @@ import { useInView } from 'motion/react';
 
 function Counter({ from, to, duration = 2, suffix = '' }: { from: number, to: number, duration?: number, suffix?: string }) {
   const [count, setCount] = useState(from);
+  const [done, setDone] = useState(false);
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-50px" });
 
@@ -17,6 +18,8 @@ function Counter({ from, to, duration = 2, suffix = '' }: { from: number, to: nu
         setCount(Math.floor(progress * (to - from) + from));
         if (progress < 1) {
           window.requestAnimationFrame(step);
+        } else {
+          setDone(true);
         }
       };
       window.requestAnimationFrame(step);
@@ -24,7 +27,10 @@ function Counter({ from, to, duration = 2, suffix = '' }: { from: number, to: nu
   }, [isInView, from, to, duration]);
 
   return (
-    <span ref={ref}>
+    <span
+      ref={ref}
+      className={`transition-all duration-500 ${done ? 'animate-text-glow' : ''}`}
+    >
       {count}{suffix}
     </span>
   );
@@ -32,7 +38,7 @@ function Counter({ from, to, duration = 2, suffix = '' }: { from: number, to: nu
 
 export function Stats() {
   const stats = [
-    { value: 10, suffix: '+', label: 'Projetos' },
+    { value: 5, suffix: '+', label: 'Projetos' },
     { value: 98, suffix: '%', label: 'Satisfação' },
     { value: 3, suffix: '+', label: 'Anos' },
     { value: 0, suffix: '', label: 'Atrasos', textValue: 'Zero' },
@@ -43,11 +49,11 @@ export function Stats() {
       <div className="max-w-7xl mx-auto px-6">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center divide-x divide-[#FFCC99]/10">
           {stats.map((stat, index) => (
-            <div key={index} className="flex flex-col items-center justify-center">
+            <div key={index} className="flex flex-col items-center justify-center group">
               <div className="text-4xl md:text-5xl font-bold text-[#FFCC99] mb-2 tracking-tighter">
                 {stat.textValue ? stat.textValue : <Counter from={0} to={stat.value} suffix={stat.suffix} />}
               </div>
-              <div className="text-sm md:text-base text-gray-400 font-medium uppercase tracking-widest">
+              <div className="text-sm md:text-base text-gray-400 font-medium uppercase tracking-widest group-hover:text-[#FFCC99]/60 transition-colors duration-300">
                 {stat.label}
               </div>
             </div>

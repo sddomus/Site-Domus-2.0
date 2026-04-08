@@ -14,6 +14,7 @@ export function Contact() {
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
+  const [isError, setIsError] = useState(false);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     setFormData(prev => ({ ...prev, [e.target.name]: e.target.value }));
@@ -23,22 +24,32 @@ export function Contact() {
     e.preventDefault();
     setIsSubmitting(true);
     setIsSuccess(false);
+    setIsError(false);
 
     try {
-      const res = await fetch('/api/contact', {
+      const res = await fetch('https://api.web3forms.com/submit', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(formData)
+        body: JSON.stringify({
+          access_key: '785aaaa7-3fb0-4978-bcc3-06588e358984',
+          subject: `Novo contato de ${formData.name} — ${formData.subject}`,
+          from_name: formData.name,
+          email: formData.email,
+          replyto: formData.email,
+          message: `Telefone: ${formData.phone}\nServiço: ${formData.subject}\n\n${formData.message}`,
+        }),
       });
 
-      if (res.ok) {
+      const result = await res.json();
+
+      if (result.success) {
         setIsSuccess(true);
         setFormData({ name: '', email: '', phone: '', subject: '', message: '' });
-        // Esconder a mensagem de sucesso após 5 segundos
         setTimeout(() => setIsSuccess(false), 5000);
       }
     } catch (error) {
       console.error('Erro ao enviar formulário:', error);
+      setIsError(true);
     } finally {
       setIsSubmitting(false);
     }
@@ -112,8 +123,6 @@ export function Contact() {
           transition={{ duration: 0.6, delay: 0.2 }}
           className="relative"
         >
-          {/* Background Glow */}
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-[120%] bg-[#FFCC99] blur-[120px] opacity-10 rounded-full pointer-events-none" />
           
           <div className="glass-effect p-8 rounded-3xl relative z-10 border border-[#FFCC99]/20 shadow-2xl">
             <form onSubmit={handleSubmit} className="flex flex-col gap-5">
@@ -126,7 +135,7 @@ export function Contact() {
                   required
                   value={formData.name}
                   onChange={handleChange}
-                  className="w-full bg-[#080028]/50 border border-[#FFCC99]/10 rounded-xl px-4 py-3 text-white placeholder:text-gray-600 focus:outline-none focus:border-[#FFCC99] transition-colors"
+                  className="w-full bg-[#080028]/50 border border-[#FFCC99]/10 rounded-xl px-4 py-3 text-white placeholder:text-gray-600 focus:outline-none focus:border-[#FFCC99] focus:shadow-[0_0_0_3px_rgba(255,204,153,0.12)] transition-all duration-200"
                   placeholder="Como podemos te chamar?"
                 />
               </div>
@@ -140,7 +149,7 @@ export function Contact() {
                   required
                   value={formData.email}
                   onChange={handleChange}
-                  className="w-full bg-[#080028]/50 border border-[#FFCC99]/10 rounded-xl px-4 py-3 text-white placeholder:text-gray-600 focus:outline-none focus:border-[#FFCC99] transition-colors"
+                  className="w-full bg-[#080028]/50 border border-[#FFCC99]/10 rounded-xl px-4 py-3 text-white placeholder:text-gray-600 focus:outline-none focus:border-[#FFCC99] focus:shadow-[0_0_0_3px_rgba(255,204,153,0.12)] transition-all duration-200"
                   placeholder="seu@email.com"
                 />
               </div>
@@ -154,7 +163,7 @@ export function Contact() {
                   required
                   value={formData.phone}
                   onChange={handleChange}
-                  className="w-full bg-[#080028]/50 border border-[#FFCC99]/10 rounded-xl px-4 py-3 text-white placeholder:text-gray-600 focus:outline-none focus:border-[#FFCC99] transition-colors"
+                  className="w-full bg-[#080028]/50 border border-[#FFCC99]/10 rounded-xl px-4 py-3 text-white placeholder:text-gray-600 focus:outline-none focus:border-[#FFCC99] focus:shadow-[0_0_0_3px_rgba(255,204,153,0.12)] transition-all duration-200"
                   placeholder="(XX) 9XXXX-XXXX"
                 />
               </div>
@@ -167,7 +176,7 @@ export function Contact() {
                   required
                   value={formData.subject}
                   onChange={handleChange}
-                  className="w-full bg-[#080028]/50 border border-[#FFCC99]/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-[#FFCC99] transition-colors appearance-none"
+                  className="w-full bg-[#080028]/50 border border-[#FFCC99]/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-[#FFCC99] focus:shadow-[0_0_0_3px_rgba(255,204,153,0.12)] transition-all duration-200 appearance-none"
                 >
                   <option value="" disabled className="text-gray-600">Selecione o serviço desejado...</option>
                   <option value="Sistemas Internos (ERPs/CRMs)">Sistemas Internos (ERPs/CRMs)</option>
@@ -187,7 +196,7 @@ export function Contact() {
                   rows={4}
                   value={formData.message}
                   onChange={handleChange}
-                  className="w-full bg-[#080028]/50 border border-[#FFCC99]/10 rounded-xl px-4 py-3 text-white placeholder:text-gray-600 focus:outline-none focus:border-[#FFCC99] transition-colors resize-none"
+                  className="w-full bg-[#080028]/50 border border-[#FFCC99]/10 rounded-xl px-4 py-3 text-white placeholder:text-gray-600 focus:outline-none focus:border-[#FFCC99] focus:shadow-[0_0_0_3px_rgba(255,204,153,0.12)] transition-all duration-200 resize-none"
                   placeholder="Conte-nos um pouco sobre o seu projeto..."
                 ></textarea>
               </div>
