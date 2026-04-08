@@ -10,7 +10,7 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://sddomus.com'),
+  metadataBase: new URL('https://domussd.com'),
   title: 'Domus Soluções Digitais | Desenvolvimento Low-Code e IA',
   description: 'Agência especializada em desenvolvimento low-code, apps, sistemas internos e agentes de IA. Entregamos em semanas o que outros levam meses.',
   keywords: ['low-code', 'desenvolvimento de software', 'agentes de IA', 'FlutterFlow', 'apps', 'sistemas internos', 'agência digital'],
