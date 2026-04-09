@@ -6,7 +6,7 @@ export function Footer() {
     <footer className="relative bg-[var(--color-bg-main)] border-t border-[#FFCC99]/10 pt-20 pb-10 px-6 overflow-hidden">
 
       {/* Ovelha decorativa de fundo */}
-      <div className="absolute inset-0 flex items-center justify-center pointer-events-none select-none">
+      <div className="absolute inset-0 flex items-center justify-center pointer-events-none select-none -translate-y-6">
         <Image
           src="/ovelha.png"
           alt=""
