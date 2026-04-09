@@ -5,9 +5,9 @@ export function Footer() {
   return (
     <footer className="bg-[var(--color-bg-main)] border-t border-[#FFCC99]/10 pt-20 pb-10 px-6">
       <div className="max-w-7xl mx-auto w-full">
-        <div className="grid grid-cols-1 md:grid-cols-[1fr_auto_1fr] gap-12 md:gap-8 items-start">
+        <div className="grid grid-cols-1 md:grid-cols-[1fr_1fr] gap-12 md:gap-8 items-start">
 
-          {/* Coluna 1: Logo e Missão */}
+          {/* Coluna 1: Logo, Missão e Ovelha */}
           <div className="flex flex-col gap-6">
             <Link href="/" className="group w-fit">
               <Image
@@ -21,16 +21,12 @@ export function Footer() {
             <p className="text-gray-400 text-sm leading-relaxed font-light max-w-[300px]">
               Transformando visão em realidade digital. Somos especialistas em criar soluções de software de alta performance e design focado em conversão.
             </p>
-          </div>
-
-          {/* Coluna central: Ovelha */}
-          <div className="hidden md:flex items-center justify-center self-center">
             <Image
               src="/ovelha.png"
               alt="Mascote Domus"
-              width={120}
-              height={120}
-              className="w-[100px] h-auto object-contain opacity-60 hover:opacity-90 transition-opacity duration-500"
+              width={160}
+              height={160}
+              className="w-[80px] h-auto object-contain opacity-55 hover:opacity-85 transition-opacity duration-500"
             />
           </div>
 
