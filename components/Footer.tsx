@@ -5,10 +5,10 @@ export function Footer() {
   return (
     <footer className="bg-[var(--color-bg-main)] border-t border-[#FFCC99]/10 pt-20 pb-10 px-6">
       <div className="max-w-7xl mx-auto w-full">
-        <div className="grid grid-cols-1 md:grid-cols-[1fr_1fr_1fr] gap-8 items-center">
+        <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-12">
 
           {/* Coluna 1: Logo e Missão */}
-          <div className="flex flex-col gap-6">
+          <div className="flex flex-col gap-6 shrink-0">
             <Link href="/" className="group w-fit">
               <Image
                 src="/logo-nome.png"
@@ -18,24 +18,24 @@ export function Footer() {
                 className="h-[36px] w-auto object-contain group-hover:opacity-80 transition-opacity duration-300"
               />
             </Link>
-            <p className="text-gray-400 text-sm leading-relaxed font-light max-w-[300px]">
+            <p className="text-gray-400 text-sm leading-relaxed font-light max-w-[260px]">
               Transformando visão em realidade digital. Somos especialistas em criar soluções de software de alta performance e design focado em conversão.
             </p>
           </div>
 
           {/* Coluna central: Ovelha */}
-          <div className="hidden md:flex items-center justify-start pl-4">
+          <div className="hidden md:flex items-center justify-center shrink-0">
             <Image
               src="/ovelha.png"
               alt="Mascote Domus"
               width={200}
               height={200}
-              className="w-[160px] h-auto object-contain opacity-50 hover:opacity-80 transition-opacity duration-500"
+              className="w-[140px] h-auto object-contain opacity-50 hover:opacity-80 transition-opacity duration-500"
             />
           </div>
 
           {/* Colunas 2 e 3: Empresa + Serviços */}
-          <div className="grid grid-cols-2 gap-6">
+          <div className="grid grid-cols-2 gap-12 shrink-0">
 
             {/* Empresa */}
             <div>
