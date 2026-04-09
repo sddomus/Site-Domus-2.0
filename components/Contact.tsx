@@ -95,7 +95,7 @@ export function Contact() {
               </div>
               <div>
                 <p className="text-sm text-gray-500 font-medium uppercase tracking-wider mb-1">WhatsApp</p>
-                <a href="https://wa.me/5553991662468" target="_blank" rel="noopener noreferrer" className="text-white hover:text-[#FFCC99] transition-colors">
+                <a href="https://wa.me/5553991662468?text=Olá%2C%20gostaria%20de%20saber%20mais%20sobre%20os%20serviços%20da%20Domus!" target="_blank" rel="noopener noreferrer" className="text-white hover:text-[#FFCC99] transition-colors">
                   +55 (53) 99166-2468
                 </a>
               </div>
