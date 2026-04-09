@@ -5,7 +5,7 @@ export function Footer() {
   return (
     <footer className="bg-[var(--color-bg-main)] border-t border-[#FFCC99]/10 pt-20 pb-10 px-6">
       <div className="max-w-7xl mx-auto w-full">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-16">
+        <div className="grid grid-cols-1 md:grid-cols-[2fr_1fr] gap-12 md:gap-8">
 
           {/* Coluna 1: Logo e Missão */}
           <div className="flex flex-col gap-6">
@@ -23,42 +23,47 @@ export function Footer() {
             </p>
           </div>
 
-          {/* Coluna 2: Empresa */}
-          <div>
-            <h4 className="text-white font-semibold mb-6">Empresa</h4>
-            <ul className="flex flex-col gap-3">
-              {[
-                { label: 'Sobre Nós', href: '#sobre-nos' },
-                { label: 'Metodologia', href: '#metodologia' },
-                { label: 'Casos de Sucesso', href: '#casos-de-sucesso' },
-                { label: 'Contato', href: '#contato' },
-              ].map((item) => (
-                <li key={item.label}>
-                  <Link href={item.href} className="text-gray-400 hover:text-[#FFCC99] text-sm transition-colors">
-                    {item.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
+          {/* Colunas 2 e 3: Empresa + Serviços */}
+          <div className="grid grid-cols-2 gap-6">
 
-          {/* Coluna 3: Serviços */}
-          <div>
-            <h4 className="text-white font-semibold mb-6">Serviços</h4>
-            <ul className="flex flex-col gap-3">
-              {[
-                { label: 'Sistemas Internos', href: '#servicos' },
-                { label: 'Apps Personalizados', href: '#servicos' },
-                { label: 'Sites de Alta Conversão', href: '#servicos' },
-                { label: 'Agentes de IA', href: '#servicos' },
-              ].map((item) => (
-                <li key={item.label}>
-                  <Link href={item.href} className="text-gray-400 hover:text-[#FFCC99] text-sm transition-colors">
-                    {item.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
+            {/* Empresa */}
+            <div>
+              <h4 className="text-white font-semibold mb-6">Empresa</h4>
+              <ul className="flex flex-col gap-3">
+                {[
+                  { label: 'Sobre Nós', href: '#sobre-nos' },
+                  { label: 'Metodologia', href: '#metodologia' },
+                  { label: 'Casos de Sucesso', href: '#casos-de-sucesso' },
+                  { label: 'Contato', href: '#contato' },
+                ].map((item) => (
+                  <li key={item.label}>
+                    <Link href={item.href} className="text-gray-400 hover:text-[#FFCC99] text-sm transition-colors">
+                      {item.label}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            {/* Serviços */}
+            <div>
+              <h4 className="text-white font-semibold mb-6">Serviços</h4>
+              <ul className="flex flex-col gap-3">
+                {[
+                  { label: 'Sistemas Internos', href: '#servicos' },
+                  { label: 'Apps Personalizados', href: '#servicos' },
+                  { label: 'Sites de Alta Conversão', href: '#servicos' },
+                  { label: 'Agentes de IA', href: '#servicos' },
+                ].map((item) => (
+                  <li key={item.label}>
+                    <Link href={item.href} className="text-gray-400 hover:text-[#FFCC99] text-sm transition-colors">
+                      {item.label}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
           </div>
 
         </div>

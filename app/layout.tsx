@@ -3,6 +3,7 @@ import { Inter } from 'next/font/google';
 import './globals.css';
 import { ScrollProgress } from '@/components/ScrollProgress';
 import { CursorGlow } from '@/components/CursorGlow';
+import { WhatsAppButton } from '@/components/WhatsAppButton';
 
 const inter = Inter({
   subsets: ['latin'],
@@ -44,6 +45,7 @@ export default function RootLayout({
       <body className="bg-[var(--color-bg-main)] bg-grid-pattern text-gray-100 min-h-screen font-sans antialiased selection:bg-[#FFCC99]/30 selection:text-[#FFCC99]" suppressHydrationWarning>
         <ScrollProgress />
         <CursorGlow />
+        <WhatsAppButton />
         {children}
       </body>
     </html>

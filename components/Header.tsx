@@ -20,7 +20,7 @@ export function Header() {
       className={`fixed top-0 w-full z-50 transition-all duration-300 ${
         scrolled
           ? 'bg-[#080028]/80 backdrop-blur-2xl border-b border-[#FFCC99]/15 shadow-[0_4px_24px_rgba(0,0,0,0.4)]'
-          : 'bg-transparent backdrop-blur-md border-b border-transparent'
+          : 'bg-[#080028]/20 backdrop-blur-md border-b border-[#FFCC99]/5'
       }`}
     >
       <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
