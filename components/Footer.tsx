@@ -1,13 +1,12 @@
 import Link from 'next/link';
 import Image from 'next/image';
-import { ArrowRight } from 'lucide-react';
 
 export function Footer() {
   return (
     <footer className="bg-[var(--color-bg-main)] border-t border-[#FFCC99]/10 pt-20 pb-10 px-6">
       <div className="max-w-7xl mx-auto w-full">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-12 md:gap-8">
-          
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-16">
+
           {/* Coluna 1: Logo e Missão */}
           <div className="flex flex-col gap-6">
             <Link href="/" className="group w-fit">
@@ -24,10 +23,10 @@ export function Footer() {
             </p>
           </div>
 
-          {/* Coluna 2: Links Rápidos */}
+          {/* Coluna 2: Empresa */}
           <div>
             <h4 className="text-white font-semibold mb-6">Empresa</h4>
-            <ul className="flex flex-col gap-4">
+            <ul className="flex flex-col gap-3">
               {[
                 { label: 'Sobre Nós', href: '#sobre-nos' },
                 { label: 'Metodologia', href: '#metodologia' },
@@ -46,7 +45,7 @@ export function Footer() {
           {/* Coluna 3: Serviços */}
           <div>
             <h4 className="text-white font-semibold mb-6">Serviços</h4>
-            <ul className="flex flex-col gap-4">
+            <ul className="flex flex-col gap-3">
               {[
                 { label: 'Sistemas Internos', href: '#servicos' },
                 { label: 'Apps Personalizados', href: '#servicos' },
@@ -62,26 +61,6 @@ export function Footer() {
             </ul>
           </div>
 
-          {/* Coluna 4: Newsletter */}
-          <div>
-            <h4 className="text-white font-semibold mb-6">Newsletter</h4>
-            <p className="text-gray-400 text-sm mb-4 font-light">
-              Receba insights sobre tecnologia e design para escalar seu negócio.
-            </p>
-            <form className="flex items-center gap-2">
-              <input 
-                type="email" 
-                placeholder="Seu melhor e-mail" 
-                className="glass-effect w-full px-4 py-3 rounded-xl text-sm text-white placeholder:text-gray-500 focus:outline-none focus:border-[#FFCC99]/50 transition-colors"
-              />
-              <button 
-                type="button"
-                className="bg-[#FFCC99] text-[#080028] p-3 rounded-xl hover:scale-105 transition-transform"
-              >
-                <ArrowRight className="w-5 h-5" />
-              </button>
-            </form>
-          </div>
         </div>
 
         {/* Rodapé Inferior */}
