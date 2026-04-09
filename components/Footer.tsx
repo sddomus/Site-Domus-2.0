@@ -5,7 +5,7 @@ export function Footer() {
   return (
     <footer className="bg-[var(--color-bg-main)] border-t border-[#FFCC99]/10 pt-20 pb-10 px-6">
       <div className="max-w-7xl mx-auto w-full">
-        <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-12">
+        <div className="flex flex-col md:flex-row items-start md:items-center gap-16">
 
           {/* Coluna 1: Logo e Missão */}
           <div className="flex flex-col gap-6 shrink-0">
