@@ -343,7 +343,7 @@ export function Hero() {
 
           <h1 className="text-5xl md:text-7xl font-bold tracking-tighter text-white leading-[1.1]">
             Inovação Digital em <br />
-            <span className="block min-h-[1.2em]"><TypewriterText /></span>
+            <span className="block min-h-[2.5em] md:min-h-[1.2em]"><TypewriterText /></span>
           </h1>
 
           <p className="text-lg text-gray-400 max-w-xl font-light leading-relaxed">
