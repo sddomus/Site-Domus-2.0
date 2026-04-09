@@ -18,7 +18,7 @@ export function Footer() {
                 className="h-[36px] w-auto object-contain group-hover:opacity-80 transition-opacity duration-300"
               />
             </Link>
-            <p className="text-gray-400 text-sm leading-relaxed font-light">
+            <p className="text-gray-400 text-sm leading-relaxed font-light max-w-[260px]">
               Transformando visão em realidade digital. Somos especialistas em criar soluções de software de alta performance e design focado em conversão.
             </p>
           </div>
