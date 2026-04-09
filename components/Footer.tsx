@@ -24,7 +24,7 @@ export function Footer() {
           </div>
 
           {/* Coluna central: Ovelha */}
-          <div className="hidden md:flex items-center justify-center">
+          <div className="hidden md:flex items-center justify-start pl-4">
             <Image
               src="/ovelha.png"
               alt="Mascote Domus"
