@@ -3,7 +3,7 @@
 export function WhatsAppButton() {
   return (
     <a
-      href="https://wa.me/5553991662468"
+      href="https://wa.me/5553991662468?text=Olá%2C%20gostaria%20de%20saber%20mais%20sobre%20os%20serviços%20da%20Domus!"
       target="_blank"
       rel="noopener noreferrer"
       aria-label="Fale conosco no WhatsApp"
