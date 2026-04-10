@@ -23,14 +23,6 @@ export const metadata: Metadata = {
     title: 'Domus Soluções Digitais | Desenvolvimento Low-Code e IA',
     description: 'Agência especializada em desenvolvimento low-code, apps, sistemas internos e agentes de IA. Entregamos em semanas o que outros levam meses.',
     siteName: 'Domus Soluções Digitais',
-    images: [
-      {
-        url: '/logo-horizontal.png',
-        width: 1200,
-        height: 630,
-        alt: 'Domus Soluções Digitais',
-      },
-    ],
     locale: 'pt_BR',
     type: 'website',
   },
