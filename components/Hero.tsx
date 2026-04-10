@@ -372,12 +372,10 @@ export function Hero() {
 
         {/* Right Side: Cards */}
         <div className="hidden lg:grid grid-cols-[160px_1fr] gap-3 h-[460px]">
-          {/* Left column: Velocity + AI stacked */}
           <div className="flex flex-col gap-3">
             <VelocityCard />
             <AIStreamCard />
           </div>
-          {/* Right column: Terminal full height */}
           <TerminalCard />
         </div>
       </div>

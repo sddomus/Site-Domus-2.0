@@ -4,6 +4,7 @@ import './globals.css';
 import { ScrollProgress } from '@/components/ScrollProgress';
 import { CursorGlow } from '@/components/CursorGlow';
 import { WhatsAppButton } from '@/components/WhatsAppButton';
+import { IntroOverlay } from '@/components/IntroOverlay';
 
 const inter = Inter({
   subsets: ['latin'],
@@ -43,6 +44,7 @@ export default function RootLayout({
   return (
     <html lang="pt-BR" className={inter.variable}>
       <body className="bg-[var(--color-bg-main)] bg-grid-pattern text-gray-100 min-h-screen font-sans antialiased selection:bg-[#FFCC99]/30 selection:text-[#FFCC99]" suppressHydrationWarning>
+        <IntroOverlay />
         <ScrollProgress />
         <CursorGlow />
         <WhatsAppButton />
