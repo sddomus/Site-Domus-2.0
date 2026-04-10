@@ -14,9 +14,9 @@ export function IntroOverlay() {
   const maxScale = isMobile ? 10 : 16;
   const END = vh * 0.5;
 
-  const scale       = useTransform(scrollY, [0, END],                  [1, maxScale]);
-  const opacity     = useTransform(scrollY, [END * 0.48, END * 0.88],  [1, 0]);
-  const hintOpacity = useTransform(scrollY, [0, END * 0.18],           [1, 0]);
+  const scale       = useTransform(scrollY, [0, END],           [1, maxScale]);
+  const opacity     = useTransform(scrollY, [END * 0.5, END],   [1, 0]);
+  const hintOpacity = useTransform(scrollY, [0, END * 0.18],    [1, 0]);
 
   useEffect(() => {
     setMounted(true);
@@ -29,7 +29,7 @@ export function IntroOverlay() {
   return (
     <motion.div
       style={{ opacity }}
-      className="fixed inset-0 z-[200] bg-[#080028] flex flex-col items-center justify-center select-none pointer-events-none overflow-hidden"
+      className="fixed inset-0 z-[200] bg-[#080028] flex flex-col items-center justify-center select-none pointer-events-none overflow-hidden w-screen h-[100dvh]"
     >
       <motion.div
         style={{ scale }}
@@ -42,7 +42,7 @@ export function IntroOverlay() {
           alt=""
           width={160}
           height={160}
-          className="object-contain"
+          className={`object-contain ${isMobile ? 'w-[100px] h-[100px]' : 'w-[160px] h-[160px]'}`}
           priority
         />
       </motion.div>
