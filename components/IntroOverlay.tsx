@@ -9,8 +9,8 @@ export function IntroOverlay() {
   const [vh, setVh] = useState(700);
   const { scrollY } = useScroll();
 
-  // END coincide com o spacer: calc(100vh - 144px) → hero inicia em vh + 80
-  const END = vh + 80;
+  // END coincide com o spacer: calc(50vh - 224px) → scroll mais curto
+  const END = vh * 0.5;
   // Overlay some completamente em 88% do percurso — hero só aparece em 100%
   const scale       = useTransform(scrollY, [0, END],              [1, 16]);
   const opacity     = useTransform(scrollY, [END * 0.48, END * 0.88], [1, 0]);

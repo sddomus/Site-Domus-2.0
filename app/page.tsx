@@ -17,7 +17,7 @@ export default function Home() {
       <Header />
       <main className="flex flex-col gap-24 pb-20 pt-32">
         {/* Spacer para o intro overlay: empurra o hero para baixo exatamente 100vh */}
-        <div style={{ height: 'calc(100vh - 144px)', minHeight: 0 }} aria-hidden="true" />
+        <div style={{ height: 'calc(50vh - 224px)', minHeight: 0 }} aria-hidden="true" />
         <Hero />
         <TechMarquee />
         <Services />
