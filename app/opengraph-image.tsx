@@ -17,61 +17,89 @@ export default function OGImage() {
           alignItems: 'center',
           justifyContent: 'center',
           backgroundColor: '#080028',
-          fontFamily: 'sans-serif',
+          fontFamily: 'Georgia, serif',
           position: 'relative',
           overflow: 'hidden',
         }}
       >
-        {/* Grid pattern overlay */}
+        {/* Grid lines */}
         <div
           style={{
             position: 'absolute',
             inset: 0,
             backgroundImage:
-              'linear-gradient(rgba(255,204,153,0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(255,204,153,0.04) 1px, transparent 1px)',
-            backgroundSize: '48px 48px',
+              'linear-gradient(rgba(255,204,153,0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(255,204,153,0.05) 1px, transparent 1px)',
+            backgroundSize: '60px 60px',
+            display: 'flex',
           }}
         />
 
-        {/* Glow center */}
+        {/* Radial glow */}
         <div
           style={{
             position: 'absolute',
-            width: 600,
-            height: 600,
+            width: 700,
+            height: 700,
             borderRadius: '50%',
-            background: 'radial-gradient(circle, rgba(255,204,153,0.08) 0%, transparent 70%)',
+            background: 'radial-gradient(circle, rgba(255,204,153,0.07) 0%, transparent 65%)',
             top: '50%',
             left: '50%',
-            transform: 'translate(-50%, -50%)',
+            marginTop: -350,
+            marginLeft: -350,
+            display: 'flex',
           }}
         />
 
-        {/* Top label */}
+        {/* Badge */}
         <div
           style={{
             display: 'flex',
             alignItems: 'center',
             gap: 8,
-            backgroundColor: 'rgba(255,204,153,0.08)',
-            border: '1px solid rgba(255,204,153,0.2)',
+            backgroundColor: 'rgba(255,204,153,0.1)',
+            border: '1px solid rgba(255,204,153,0.25)',
             borderRadius: 999,
-            padding: '8px 20px',
-            marginBottom: 40,
+            padding: '8px 24px',
+            marginBottom: 36,
           }}
         >
-          <div style={{ width: 8, height: 8, borderRadius: '50%', backgroundColor: '#FFCC99' }} />
-          <span style={{ color: '#FFCC99', fontSize: 16, letterSpacing: 2 }}>
+          <div style={{ width: 8, height: 8, borderRadius: '50%', backgroundColor: '#FFCC99', display: 'flex' }} />
+          <span style={{ color: '#FFCC99', fontSize: 15, letterSpacing: 3, display: 'flex' }}>
             AGÊNCIA LOW-CODE &amp; IA
           </span>
         </div>
 
-        {/* Logo */}
-        <img
-          src="https://domussd.com/logo-horizontal.png"
-          width={360}
-          height={80}
-          style={{ objectFit: 'contain', marginBottom: 32 }}
+        {/* Logo text */}
+        <div
+          style={{
+            display: 'flex',
+            alignItems: 'center',
+            gap: 20,
+            marginBottom: 28,
+          }}
+        >
+          <span
+            style={{
+              fontSize: 80,
+              fontWeight: 700,
+              color: '#FFCC99',
+              letterSpacing: 8,
+              lineHeight: 1,
+            }}
+          >
+            DOMUS
+          </span>
+        </div>
+
+        {/* Divider */}
+        <div
+          style={{
+            width: 60,
+            height: 2,
+            backgroundColor: 'rgba(255,204,153,0.3)',
+            marginBottom: 28,
+            display: 'flex',
+          }}
         />
 
         {/* Tagline */}
@@ -81,17 +109,17 @@ export default function OGImage() {
             fontSize: 22,
             fontWeight: 300,
             textAlign: 'center',
-            maxWidth: 680,
+            maxWidth: 700,
             lineHeight: 1.6,
-            marginBottom: 48,
+            marginBottom: 52,
+            display: 'flex',
           }}
         >
-          Transformamos ideias em software que gera resultados.{'\n'}
-          Entregamos em semanas o que outros levam meses.
+          Soluções digitais que transformam ideias em resultados reais.
         </div>
 
-        {/* Stats row */}
-        <div style={{ display: 'flex', gap: 48 }}>
+        {/* Stats */}
+        <div style={{ display: 'flex', gap: 64 }}>
           {[
             { value: '21 dias', label: 'Entrega média' },
             { value: '100%', label: 'Projetos entregues' },
@@ -103,23 +131,26 @@ export default function OGImage() {
                 display: 'flex',
                 flexDirection: 'column',
                 alignItems: 'center',
-                gap: 4,
+                gap: 6,
               }}
             >
-              <span style={{ color: '#FFCC99', fontSize: 28, fontWeight: 700 }}>{s.value}</span>
-              <span style={{ color: '#6b7280', fontSize: 14 }}>{s.label}</span>
+              <span style={{ color: '#FFCC99', fontSize: 30, fontWeight: 700, display: 'flex' }}>
+                {s.value}
+              </span>
+              <span style={{ color: '#6b7280', fontSize: 15, display: 'flex' }}>{s.label}</span>
             </div>
           ))}
         </div>
 
-        {/* Bottom domain */}
+        {/* Domain */}
         <div
           style={{
             position: 'absolute',
-            bottom: 32,
-            color: 'rgba(255,204,153,0.35)',
-            fontSize: 15,
-            letterSpacing: 3,
+            bottom: 36,
+            color: 'rgba(255,204,153,0.3)',
+            fontSize: 16,
+            letterSpacing: 4,
+            display: 'flex',
           }}
         >
           domussd.com
