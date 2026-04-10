@@ -7,18 +7,21 @@ import { useState, useEffect } from 'react';
 export function IntroOverlay() {
   const [mounted, setMounted] = useState(false);
   const [vh, setVh] = useState(700);
+  const [isMobile, setIsMobile] = useState(false);
   const { scrollY } = useScroll();
 
-  // END coincide com o spacer: calc(50vh - 224px) → scroll mais curto
+  // Mobile usa escala menor para não transbordar
+  const maxScale = isMobile ? 10 : 16;
   const END = vh * 0.5;
-  // Overlay some completamente em 88% do percurso — hero só aparece em 100%
-  const scale       = useTransform(scrollY, [0, END],              [1, 16]);
-  const opacity     = useTransform(scrollY, [END * 0.48, END * 0.88], [1, 0]);
-  const hintOpacity = useTransform(scrollY, [0, END * 0.18],       [1, 0]);
+
+  const scale       = useTransform(scrollY, [0, END],                  [1, maxScale]);
+  const opacity     = useTransform(scrollY, [END * 0.48, END * 0.88],  [1, 0]);
+  const hintOpacity = useTransform(scrollY, [0, END * 0.18],           [1, 0]);
 
   useEffect(() => {
     setMounted(true);
     setVh(window.innerHeight);
+    setIsMobile(window.innerWidth < 768);
   }, []);
 
   if (!mounted) return null;
@@ -26,7 +29,7 @@ export function IntroOverlay() {
   return (
     <motion.div
       style={{ opacity }}
-      className="fixed inset-0 z-[200] bg-[#080028] flex flex-col items-center justify-center select-none pointer-events-none"
+      className="fixed inset-0 z-[200] bg-[#080028] flex flex-col items-center justify-center select-none pointer-events-none overflow-hidden"
     >
       <motion.div
         style={{ scale }}
