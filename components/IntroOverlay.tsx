@@ -28,13 +28,18 @@ export function IntroOverlay() {
       style={{ opacity }}
       className="fixed inset-0 z-[200] bg-[#080028] flex flex-col items-center justify-center select-none pointer-events-none"
     >
-      <motion.div style={{ scale }} className="origin-center">
+      <motion.div
+        style={{ scale }}
+        className="origin-center"
+        animate={{ opacity: [0.4, 1, 0.4] }}
+        transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut' }}
+      >
         <Image
           src="/ovelha.png"
           alt=""
           width={160}
           height={160}
-          className="object-contain opacity-80"
+          className="object-contain"
           priority
         />
       </motion.div>
