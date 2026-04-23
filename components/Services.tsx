@@ -5,7 +5,7 @@ import { Database, Smartphone, Bot, Globe, ArrowRight } from 'lucide-react';
 
 export function Services() {
   return (
-    <section id="servicos" className="px-6 max-w-7xl mx-auto w-full">
+    <section id="servicos" className="scroll-mt-24 px-6 max-w-7xl mx-auto w-full">
       <div className="mb-16">
         <h2 className="text-3xl md:text-5xl font-bold tracking-tight text-white mb-4">
           Nossas <span className="animate-gradient-text">Especialidades</span>

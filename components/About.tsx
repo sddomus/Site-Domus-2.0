@@ -23,7 +23,7 @@ const values = [
 
 export function About() {
   return (
-    <section id="sobre-nos" className="px-6 max-w-7xl mx-auto w-full">
+    <section id="sobre-nos" className="scroll-mt-24 px-6 max-w-7xl mx-auto w-full">
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
 
         {/* Left: Copy */}

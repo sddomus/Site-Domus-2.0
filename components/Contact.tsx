@@ -56,7 +56,7 @@ export function Contact() {
   };
 
   return (
-    <section id="contato" className="px-6 max-w-7xl mx-auto w-full relative">
+    <section id="contato" className="scroll-mt-24 px-6 max-w-7xl mx-auto w-full relative">
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
         
         {/* Left Column */}

@@ -28,7 +28,7 @@ const differentials = [
 
 export function WhyChooseUs() {
   return (
-    <section id="metodologia" className="px-6 max-w-7xl mx-auto w-full">
+    <section id="metodologia" className="scroll-mt-24 px-6 max-w-7xl mx-auto w-full">
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 relative">
 
         {/* Left Column: The Promise (Sticky) */}

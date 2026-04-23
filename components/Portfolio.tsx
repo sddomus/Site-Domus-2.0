@@ -271,7 +271,7 @@ export function Portfolio() {
     : projects.filter(p => p.category === activeFilter);
 
   return (
-    <section id="casos-de-sucesso" className="px-6 max-w-7xl mx-auto w-full">
+    <section id="casos-de-sucesso" className="scroll-mt-24 px-6 max-w-7xl mx-auto w-full">
       {/* Header */}
       <div className="text-center mb-12">
         <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#0f0535] border border-[#FFCC99]/10 mb-6">
