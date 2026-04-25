@@ -1,6 +1,6 @@
 'use client';
 
-import { motion } from 'motion/react';
+import { motion, useScroll, useTransform } from 'motion/react';
 import Link from 'next/link';
 import { ArrowRight, Zap } from 'lucide-react';
 import { useEffect, useState, useRef } from 'react';
@@ -308,8 +308,19 @@ const PARTICLES = Array.from({ length: 18 }, (_, i) => ({
 
 /* ── Hero ── */
 export function Hero() {
+  const [vh, setVh] = useState(700);
+  const { scrollY } = useScroll();
+  const END = vh * 0.5;
+  // Hero fica invisível enquanto o overlay cobre a tela,
+  // e aparece suavemente logo após o overlay desaparecer
+  const heroOpacity = useTransform(scrollY, [END * 0.7, END * 1.1], [0, 1]);
+
+  useEffect(() => {
+    setVh(window.innerHeight);
+  }, []);
+
   return (
-    <section className="relative min-h-[80vh] flex items-center justify-center overflow-hidden px-6">
+    <motion.section style={{ opacity: heroOpacity }} className="relative min-h-[80vh] flex items-center justify-center overflow-hidden px-6">
 
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
         {PARTICLES.map(p => (
@@ -379,6 +390,6 @@ export function Hero() {
           <TerminalCard />
         </div>
       </div>
-    </section>
+    </motion.section>
   );
 }
