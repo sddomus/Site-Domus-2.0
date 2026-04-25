@@ -13,12 +13,12 @@ export function IntroOverlay() {
   const maxScale = isMobile ? 10 : 16;
   const END = vh * 0.5;
 
-  const scale        = useTransform(scrollY, [0, END],              [1, maxScale]);
-  // ovelha e hint somem primeiro
-  const sheepOpacity = useTransform(scrollY, [0, END * 0.45],       [1, 0]);
-  const hintOpacity  = useTransform(scrollY, [0, END * 0.18],       [1, 0]);
-  // fundo permanece sólido até quase o fim, depois desaparece rápido — sem vazar o hero
-  const bgOpacity    = useTransform(scrollY, [END * 0.75, END],     [1, 0]);
+  const scale        = useTransform(scrollY, [0, END],            [1, maxScale]);
+  // fundo some de forma rápida e tardia → sem sombra visível sobre o hero
+  const opacity      = useTransform(scrollY, [END * 0.75, END],   [1, 0]);
+  // ovelha some bem antes do fundo começar a desaparecer
+  const sheepOpacity = useTransform(scrollY, [0, END * 0.45],     [1, 0]);
+  const hintOpacity  = useTransform(scrollY, [0, END * 0.18],     [1, 0]);
 
   useEffect(() => {
     setMounted(true);
@@ -29,18 +29,12 @@ export function IntroOverlay() {
   if (!mounted) return null;
 
   return (
-    <div className="fixed inset-0 z-[200] select-none pointer-events-none overflow-hidden w-screen h-[100dvh]">
-      {/* Fundo sólido — some por último, de forma rápida, sem deixar o hero vazar */}
-      <motion.div
-        style={{ opacity: bgOpacity }}
-        className="absolute inset-0 bg-[#080028] bg-grid-pattern"
-      />
-
-      {/* Ovelha */}
-      <motion.div
-        style={{ scale, opacity: sheepOpacity }}
-        className="absolute inset-0 flex items-center justify-center origin-center"
-      >
+    <motion.div
+      style={{ opacity }}
+      className="fixed inset-0 z-[200] bg-[#080028] bg-grid-pattern flex flex-col items-center justify-center select-none pointer-events-none overflow-hidden w-screen h-[100dvh]"
+    >
+      {/* scale + sheepOpacity no wrapper; blink animation no filho para não conflitar */}
+      <motion.div style={{ scale, opacity: sheepOpacity }} className="origin-center">
         <motion.div
           animate={{ opacity: [0.4, 1, 0.4] }}
           transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut' }}
@@ -56,10 +50,9 @@ export function IntroOverlay() {
         </motion.div>
       </motion.div>
 
-      {/* Hint "Role para explorar" */}
       <motion.div
         style={{ opacity: hintOpacity }}
-        className="absolute bottom-12 left-0 right-0 flex flex-col items-center gap-2"
+        className="absolute bottom-12 flex flex-col items-center gap-2"
       >
         <span className="text-xs text-gray-500 tracking-widest uppercase">
           Role para explorar
@@ -70,6 +63,6 @@ export function IntroOverlay() {
           className="w-px h-8 bg-gradient-to-b from-[#FFCC99]/40 to-transparent"
         />
       </motion.div>
-    </div>
+    </motion.div>
   );
 }
