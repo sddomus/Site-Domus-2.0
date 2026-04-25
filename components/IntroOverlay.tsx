@@ -1,24 +1,30 @@
 'use client';
 
-import { motion, useScroll, useTransform } from 'motion/react';
+import { motion, useScroll, useTransform, useMotionValueEvent } from 'motion/react';
 import Image from 'next/image';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 
 export function IntroOverlay() {
   const [mounted, setMounted] = useState(false);
   const [vh, setVh] = useState(700);
   const [isMobile, setIsMobile] = useState(false);
+  const divRef = useRef<HTMLDivElement>(null);
   const { scrollY } = useScroll();
 
   const maxScale = isMobile ? 10 : 16;
   const END = vh * 0.5;
 
-  const scale        = useTransform(scrollY, [0, END],            [1, maxScale]);
-  // fundo some de forma rápida e tardia → sem sombra visível sobre o hero
-  const opacity      = useTransform(scrollY, [END * 0.75, END],   [1, 0]);
-  // ovelha some bem antes do fundo começar a desaparecer
-  const sheepOpacity = useTransform(scrollY, [0, END * 0.45],     [1, 0]);
-  const hintOpacity  = useTransform(scrollY, [0, END * 0.18],     [1, 0]);
+  const scale       = useTransform(scrollY, [0, END],           [1, maxScale]);
+  // Tudo (ovelha + fundo) some junto — fundo fading = sem diferença de brilho com a página
+  const opacity     = useTransform(scrollY, [END * 0.65, END],  [1, 0]);
+  const hintOpacity = useTransform(scrollY, [0, END * 0.18],    [1, 0]);
+
+  // Esconde via DOM (sem React re-render) para eliminar artefatos pós-animação
+  useMotionValueEvent(opacity, 'change', (v) => {
+    if (divRef.current) {
+      divRef.current.style.visibility = v < 0.01 ? 'hidden' : 'visible';
+    }
+  });
 
   useEffect(() => {
     setMounted(true);
@@ -30,11 +36,12 @@ export function IntroOverlay() {
 
   return (
     <motion.div
+      ref={divRef}
       style={{ opacity }}
       className="fixed inset-0 z-[200] bg-[#080028] bg-grid-pattern flex flex-col items-center justify-center select-none pointer-events-none overflow-hidden w-screen h-[100dvh]"
     >
-      {/* scale + sheepOpacity no wrapper; blink animation no filho para não conflitar */}
-      <motion.div style={{ scale, opacity: sheepOpacity }} className="origin-center">
+      {/* scale + blink em divs separados para não conflitar */}
+      <motion.div style={{ scale }} className="origin-center">
         <motion.div
           animate={{ opacity: [0.4, 1, 0.4] }}
           transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut' }}

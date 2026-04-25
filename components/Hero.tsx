@@ -311,9 +311,8 @@ export function Hero() {
   const [vh, setVh] = useState(700);
   const { scrollY } = useScroll();
   const END = vh * 0.5;
-  // Hero fica invisível enquanto o overlay cobre a tela,
-  // e aparece suavemente logo após o overlay desaparecer
-  const heroOpacity = useTransform(scrollY, [END * 0.7, END * 1.1], [0, 1]);
+  // Hero sincronizado com o overlay: aparece ao mesmo tempo que o overlay some
+  const heroOpacity = useTransform(scrollY, [END * 0.65, END * 1.05], [0, 1]);
 
   useEffect(() => {
     setVh(window.innerHeight);
