@@ -1,16 +1,16 @@
 'use client';
 
-import { motion, useScroll, useTransform } from 'motion/react';
+import { motion, useScroll, useTransform, useMotionValueEvent } from 'motion/react';
 import Image from 'next/image';
 import { useState, useEffect } from 'react';
 
 export function IntroOverlay() {
   const [mounted, setMounted] = useState(false);
+  const [visible, setVisible] = useState(true); // desmonta quando opacity chega a 0
   const [vh, setVh] = useState(700);
   const [isMobile, setIsMobile] = useState(false);
   const { scrollY } = useScroll();
 
-  // Mobile usa escala menor para não transbordar
   const maxScale = isMobile ? 10 : 16;
   const END = vh * 0.5;
 
@@ -18,13 +18,19 @@ export function IntroOverlay() {
   const opacity     = useTransform(scrollY, [END * 0.5, END],   [1, 0]);
   const hintOpacity = useTransform(scrollY, [0, END * 0.18],    [1, 0]);
 
+  // Desmonta quando totalmente transparente; remonta ao voltar ao topo
+  useMotionValueEvent(scrollY, 'change', (v) => {
+    if (v >= END) setVisible(false);
+    else if (v < END * 0.4) setVisible(true);
+  });
+
   useEffect(() => {
     setMounted(true);
     setVh(window.innerHeight);
     setIsMobile(window.innerWidth < 768);
   }, []);
 
-  if (!mounted) return null;
+  if (!mounted || !visible) return null;
 
   return (
     <motion.div
