@@ -15,7 +15,8 @@ export function IntroOverlay() {
   const END = vh * 0.5;
 
   const scale       = useTransform(scrollY, [0, END],            [1, maxScale]);
-  const opacity     = useTransform(scrollY, [END * 0.65, END],   [1, 0]);
+  // Fade curto e tardio: overlay some rápido → hero aparece imediatamente claro
+  const opacity     = useTransform(scrollY, [END * 0.88, END],   [1, 0]);
   const hintOpacity = useTransform(scrollY, [0, END * 0.18],     [1, 0]);
   // Ovelha some rapidamente logo antes do hero começar — sem traços sobre o conteúdo
   const sheepOpacity = useTransform(scrollY, [END * 0.5, END * 0.65], [1, 0]);

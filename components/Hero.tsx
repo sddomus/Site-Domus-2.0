@@ -311,9 +311,8 @@ export function Hero() {
   const [vh, setVh] = useState(700);
   const { scrollY } = useScroll();
   const END = vh * 0.5;
-  // Hero fica pronto (opacity 1) antes do overlay começar a sumir.
-  // Quando o overlay faz fade, o hero já está completo por baixo → revelação instantânea.
-  const heroOpacity = useTransform(scrollY, [END * 0.2, END * 0.55], [0, 1]);
+  // Hero pronto bem antes do overlay sumir → revelação imediata e clara
+  const heroOpacity = useTransform(scrollY, [END * 0.2, END * 0.75], [0, 1]);
 
   useEffect(() => {
     setVh(window.innerHeight);
