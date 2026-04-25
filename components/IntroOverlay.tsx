@@ -17,8 +17,8 @@ export function IntroOverlay() {
   const scale       = useTransform(scrollY, [0, END],            [1, maxScale]);
   const opacity     = useTransform(scrollY, [END * 0.65, END],   [1, 0]);
   const hintOpacity = useTransform(scrollY, [0, END * 0.18],     [1, 0]);
-  // Blur progressivo: ovelha fica suave conforme escala — traços somem antes do overlay
-  const sheepFilter = useTransform(scrollY, [0, END * 0.6],      ['blur(0px)', 'blur(50px)']);
+  // Ovelha some rapidamente logo antes do hero começar — sem traços sobre o conteúdo
+  const sheepOpacity = useTransform(scrollY, [END * 0.5, END * 0.65], [1, 0]);
 
   // Esconde via DOM (sem React re-render) para eliminar artefatos pós-animação
   useMotionValueEvent(opacity, 'change', (v) => {
@@ -41,8 +41,8 @@ export function IntroOverlay() {
       style={{ opacity }}
       className="fixed inset-0 z-[200] bg-[#080028] bg-grid-pattern flex flex-col items-center justify-center select-none pointer-events-none overflow-hidden w-screen h-[100dvh]"
     >
-      {/* scale + blur progressivo no wrapper; blink no filho para não conflitar */}
-      <motion.div style={{ scale, filter: sheepFilter }} className="origin-center">
+      {/* sheep: scale + fade próprio; blink no filho para não conflitar */}
+      <motion.div style={{ scale, opacity: sheepOpacity }} className="origin-center">
         <motion.div
           animate={{ opacity: [0.4, 1, 0.4] }}
           transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut' }}
