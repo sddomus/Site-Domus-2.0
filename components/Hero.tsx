@@ -311,8 +311,8 @@ export function Hero() {
   const [vh, setVh] = useState(700);
   const { scrollY } = useScroll();
   const END = vh * 0.5;
-  // Hero sincronizado com o overlay: aparece ao mesmo tempo que o overlay some
-  const heroOpacity = useTransform(scrollY, [END * 0.65, END * 1.05], [0, 1]);
+  // Cross-fade perfeito: overlay vai de 1→0 e hero vai de 0→1 no mesmo intervalo
+  const heroOpacity = useTransform(scrollY, [END * 0.65, END], [0, 1]);
 
   useEffect(() => {
     setVh(window.innerHeight);
