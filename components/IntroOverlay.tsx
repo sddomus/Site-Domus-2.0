@@ -14,18 +14,16 @@ export function IntroOverlay() {
   const maxScale = isMobile ? 10 : 16;
   const END = vh * 0.5;
 
-  const scale        = useTransform(scrollY, [0, END],                [1, maxScale]);
-  const sheepOpacity = useTransform(scrollY, [END * 0.55, END * 0.75],[1, 0]);
+  const scale        = useTransform(scrollY, [0, END * 0.75],         [1, maxScale]);
+  const sheepOpacity = useTransform(scrollY, [END * 0.35, END * 0.65],[1, 0]);
   const hintOpacity  = useTransform(scrollY, [0, END * 0.18],         [1, 0]);
 
-  // Iris: overlay colapsa para o centro — sem opacity, sem compositing, hero aparece claro
-  const clipPath = useTransform(
-    scrollY,
-    [END * 0.75, END],
-    ['circle(150% at 50% 50%)', 'circle(0% at 50% 50%)']
-  );
+  // Cortina desce — sem clip-path, sem opacity no overlay.
+  // Hero fica 100% brilhante enquanto o overlay escorrega para fora.
+  // translateY 0% → 100% = overlay sai pela base da tela, hero aparece do topo.
+  const overlayY = useTransform(scrollY, [END * 0.45, END * 0.95], ['0%', '100%']);
 
-  // Esconde via DOM quando a íris fecha completamente
+  // Esconde via DOM quando sai completamente
   useMotionValueEvent(scrollY, 'change', (v) => {
     if (divRef.current) {
       divRef.current.style.visibility = v >= END ? 'hidden' : 'visible';
@@ -43,7 +41,7 @@ export function IntroOverlay() {
   return (
     <motion.div
       ref={divRef}
-      style={{ clipPath }}
+      style={{ y: overlayY }}
       className="fixed inset-0 z-[200] bg-[#080028] bg-grid-pattern flex flex-col items-center justify-center select-none pointer-events-none overflow-hidden w-screen h-[100dvh]"
     >
       <motion.div style={{ scale, opacity: sheepOpacity }} className="origin-center">
