@@ -14,12 +14,12 @@ export function IntroOverlay() {
   const maxScale = isMobile ? 10 : 16;
   const END = vh * 0.5;
 
-  const scale      = useTransform(scrollY, [0, END],                [1, maxScale]);
-  // Fundo some em END*0.65→END — hero já pronto por baixo (sem zona morta)
-  const opacity    = useTransform(scrollY, [END * 0.65, END],       [1, 0]);
-  const hintOpacity = useTransform(scrollY, [0, END * 0.18],        [1, 0]);
-  // Ovelha some em 3% de scroll antes do fundo: praticamente simultâneo, sem traços
-  const sheepOpacity = useTransform(scrollY, [END * 0.62, END * 0.65], [1, 0]);
+  const scale        = useTransform(scrollY, [0, END],                [1, maxScale]);
+  // Ovelha some antes do fundo para não deixar traços sobre o hero
+  const sheepOpacity = useTransform(scrollY, [END * 0.6, END * 0.78], [1, 0]);
+  // Fundo some rápido no final — hero já está visível e claro por baixo
+  const opacity      = useTransform(scrollY, [END * 0.8, END],        [1, 0]);
+  const hintOpacity  = useTransform(scrollY, [0, END * 0.18],         [1, 0]);
 
   // Esconde via DOM após animação — sem re-render, sem artefatos
   useMotionValueEvent(opacity, 'change', (v) => {
