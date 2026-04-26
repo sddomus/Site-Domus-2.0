@@ -319,7 +319,7 @@ export function Hero() {
   }, []);
 
   return (
-    <motion.section style={{ opacity: heroOpacity }} className="relative min-h-[80vh] flex items-center justify-center overflow-hidden px-6">
+    <motion.section style={{ opacity: heroOpacity }} className="relative z-[201] min-h-[80vh] flex items-center justify-center overflow-hidden px-6">
 
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
         {PARTICLES.map(p => (
