@@ -15,13 +15,13 @@ export function IntroOverlay() {
   const END = vh * 0.5;
 
   const scale        = useTransform(scrollY, [0, END * 0.75],         [1, maxScale]);
-  const sheepOpacity = useTransform(scrollY, [END * 0.35, END * 0.65],[1, 0]);
+  const sheepOpacity = useTransform(scrollY, [END * 0.4, END * 0.75], [1, 0]);
   const hintOpacity  = useTransform(scrollY, [0, END * 0.18],         [1, 0]);
 
-  // Cortina desce — sem clip-path, sem opacity no overlay.
-  // Hero fica 100% brilhante enquanto o overlay escorrega para fora.
-  // translateY 0% → 100% = overlay sai pela base da tela, hero aparece do topo.
-  const overlayY = useTransform(scrollY, [END * 0.45, END * 0.95], ['0%', '100%']);
+  // Overlay e ovelha terminam juntos: ambos em END * 0.75.
+  // translateY 0% → 100% = overlay desce para fora, hero aparece de cima para baixo.
+  // Sem compositing: hero sempre 100% brilhante.
+  const overlayY = useTransform(scrollY, [END * 0.4, END * 0.75], ['0%', '100%']);
 
   // Esconde via DOM quando sai completamente
   useMotionValueEvent(scrollY, 'change', (v) => {
