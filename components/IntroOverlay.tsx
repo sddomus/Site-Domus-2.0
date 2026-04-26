@@ -15,16 +15,20 @@ export function IntroOverlay() {
   const END = vh * 0.5;
 
   const scale        = useTransform(scrollY, [0, END],                [1, maxScale]);
-  // Ovelha some antes do fundo para não deixar traços sobre o hero
-  const sheepOpacity = useTransform(scrollY, [END * 0.6, END * 0.78], [1, 0]);
-  // Fundo some rápido no final — hero já está visível e claro por baixo
-  const opacity      = useTransform(scrollY, [END * 0.8, END],        [1, 0]);
+  const sheepOpacity = useTransform(scrollY, [END * 0.55, END * 0.75],[1, 0]);
   const hintOpacity  = useTransform(scrollY, [0, END * 0.18],         [1, 0]);
 
-  // Esconde via DOM após animação — sem re-render, sem artefatos
-  useMotionValueEvent(opacity, 'change', (v) => {
+  // Iris: overlay colapsa para o centro — sem opacity, sem compositing, hero aparece claro
+  const clipPath = useTransform(
+    scrollY,
+    [END * 0.75, END],
+    ['circle(150% at 50% 50%)', 'circle(0% at 50% 50%)']
+  );
+
+  // Esconde via DOM quando a íris fecha completamente
+  useMotionValueEvent(scrollY, 'change', (v) => {
     if (divRef.current) {
-      divRef.current.style.visibility = v < 0.01 ? 'hidden' : 'visible';
+      divRef.current.style.visibility = v >= END ? 'hidden' : 'visible';
     }
   });
 
@@ -39,10 +43,9 @@ export function IntroOverlay() {
   return (
     <motion.div
       ref={divRef}
-      style={{ opacity }}
+      style={{ clipPath }}
       className="fixed inset-0 z-[200] bg-[#080028] bg-grid-pattern flex flex-col items-center justify-center select-none pointer-events-none overflow-hidden w-screen h-[100dvh]"
     >
-      {/* sheep: scale + fade próprio; blink no filho para não conflitar */}
       <motion.div style={{ scale, opacity: sheepOpacity }} className="origin-center">
         <motion.div
           animate={{ opacity: [0.4, 1, 0.4] }}
