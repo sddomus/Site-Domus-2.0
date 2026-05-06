@@ -257,7 +257,7 @@ export function Portfolio() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.4, delay: index * 0.08 }}
-            className="group bg-[var(--color-surface)] border border-[#2a2250] rounded-2xl overflow-hidden hover:border-[#FFCC99]/50 transition-all duration-300 shadow-xl shadow-black/20 flex flex-col"
+            className="group relative bg-[var(--color-surface)] border border-[#2a2250] rounded-2xl overflow-hidden hover:border-[#FFCC99]/50 transition-all duration-300 shadow-xl shadow-black/20 flex flex-col cursor-pointer"
           >
             {/* Visual Preview */}
             <div className="relative overflow-hidden h-56 flex-shrink-0">
@@ -294,12 +294,14 @@ export function Portfolio() {
                 ))}
               </div>
 
+              {/* Stretched link — cobre o card inteiro, mantendo outros elementos clicáveis acima */}
               <Link
                 href={`/portfolio/${project.slug}`}
-                className="mt-4 inline-flex items-center gap-2 text-sm font-semibold text-[#FFCC99] hover:gap-3 transition-all duration-200 group/link"
+                className="mt-4 inline-flex items-center gap-2 text-sm font-semibold text-[#FFCC99] transition-all duration-200 group/link after:absolute after:inset-0"
+                aria-label={`Ver case completo: ${project.title}`}
               >
                 Ver Case Completo
-                <ArrowRight className="w-4 h-4 group-hover/link:translate-x-1 transition-transform" />
+                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform relative z-10" />
               </Link>
             </div>
           </motion.div>
