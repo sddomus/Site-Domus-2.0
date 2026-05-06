@@ -1,3 +1,4 @@
+import { IntroOverlay } from '@/components/IntroOverlay';
 import { Header } from '@/components/Header';
 import { Hero } from '@/components/Hero';
 import { TechMarquee } from '@/components/TechMarquee';
@@ -14,6 +15,7 @@ import { Footer } from '@/components/Footer';
 export default function Home() {
   return (
     <>
+      <IntroOverlay />
       <Header />
       <main className="flex flex-col gap-24 pb-20 pt-32">
         {/* Spacer para o intro overlay: empurra o hero para baixo exatamente 100vh */}

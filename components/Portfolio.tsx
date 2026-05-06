@@ -1,7 +1,10 @@
 'use client';
 
 import { useState } from 'react';
+import Link from 'next/link';
+import { ArrowRight } from 'lucide-react';
 import { motion } from 'motion/react';
+import { projects as allProjects } from '@/lib/projects';
 
 const filters = ['Todos', 'Web Apps', 'Aplicativos Mobile', 'Educação', 'Gestão'];
 
@@ -186,80 +189,22 @@ function VisualMotriz() {
   );
 }
 
-/* ── Data ────────────────────────────────────────────────── */
+/* ── Data (Visuals injetados nos dados centralizados) ────────── */
 
-const projects = [
-  {
-    category: 'Gestão',
-    sector: 'Transporte',
-    client: 'Contratta Technology Ltda',
-    sectorColor: 'bg-blue-500/10 text-blue-400 border-blue-500/20',
-    title: 'Sistema Conect Frota',
-    description: 'Plataforma web e mobile para gestão de motoristas autônomos (TAC), controle de multas, IPVA, DPVAT e licenciamento obrigatório da frota de veículos.',
-    techs: [
-      { name: 'Web Desktop', color: 'bg-blue-500' },
-      { name: 'Mobile', color: 'bg-indigo-500' },
-      { name: 'Gestão de Frota', color: 'bg-slate-400' },
-    ],
-    Visual: VisualConectFrota,
-  },
-  {
-    category: 'Educação',
-    sector: 'Ed-Tech',
-    client: 'MS Jogos Educativos Ltda',
-    sectorColor: 'bg-green-500/10 text-green-400 border-green-500/20',
-    title: 'Portal Mônica Soltau',
-    description: 'Software customizado e aplicativo para consulta e impressão de conteúdos educacionais alinhados à BNCC, com gestão de usuários por município, escola e perfil de acesso.',
-    techs: [
-      { name: 'Web App', color: 'bg-green-500' },
-      { name: 'Mobile', color: 'bg-teal-500' },
-      { name: 'BNCC', color: 'bg-emerald-400' },
-    ],
-    Visual: VisualMonicaSoltau,
-  },
-  {
-    category: 'Web Apps',
-    sector: 'Licitações',
-    client: 'Grupo Sabbado',
-    sectorColor: 'bg-purple-500/10 text-purple-400 border-purple-500/20',
-    title: 'Portal Integrado Sabbado',
-    description: 'Portal institucional integrado com navegação segmentada nas três frentes do Grupo Sabbado — Assessoria, Consultoria e Capacitação em Licitações — em um único endereço web.',
-    techs: [
-      { name: 'Portal Institucional', color: 'bg-purple-500' },
-      { name: 'Multi-seção', color: 'bg-indigo-400' },
-      { name: 'SEO', color: 'bg-pink-400' },
-    ],
-    Visual: VisualSabbado,
-  },
-  {
-    category: 'Aplicativos Mobile',
-    sector: 'Educação & Saúde',
-    client: 'HK Mídia e Acessibilidade Ltda',
-    sectorColor: 'bg-teal-500/10 text-teal-400 border-teal-500/20',
-    title: 'Plataforma HK Mídia',
-    description: 'Aplicação web e mobile para gestão de programa de educação: monitoramento de famílias, alunos e escolas, e comunicação integrada entre alunos, familiares, professores e profissionais de saúde.',
-    techs: [
-      { name: 'Web App', color: 'bg-teal-500' },
-      { name: 'Mobile', color: 'bg-cyan-400' },
-      { name: 'Multi-perfil', color: 'bg-blue-400' },
-    ],
-    Visual: VisualHKMidia,
-  },
-  {
-    category: 'Educação',
-    sector: 'GovTech',
-    client: 'Motriz',
-    sectorColor: 'bg-orange-500/10 text-orange-400 border-orange-500/20',
-    title: 'Minha Escola tem Voz',
-    description: 'Aplicação web com suporte a múltiplos idiomas, formulários configuráveis, envio de lembretes, perfil de acesso para Secretaria de Educação, métricas de uso e dashboard analítico.',
-    techs: [
-      { name: 'Web App', color: 'bg-orange-500' },
-      { name: 'Multi-idioma', color: 'bg-yellow-400' },
-      { name: 'Dashboard', color: 'bg-red-400' },
-    ],
-    Visual: VisualMotriz,
-  },
-];
+type VisualComponent = () => React.JSX.Element;
+
+const visualMap: Record<string, VisualComponent> = {
+  'conect-frota': VisualConectFrota,
+  'monica-soltau': VisualMonicaSoltau,
+  'sabbado': VisualSabbado,
+  'hk-midia': VisualHKMidia,
+  'escola-tem-voz': VisualMotriz,
+};
+
+const projects = allProjects.map((p) => ({
+  ...p,
+  Visual: visualMap[p.slug],
+}));
 
 /* ── Component ───────────────────────────────────────────── */
 
@@ -340,7 +285,7 @@ export function Portfolio() {
                 {project.description}
               </p>
 
-              <div className="flex flex-wrap gap-2 mt-auto">
+              <div className="flex flex-wrap gap-2">
                 {project.techs.map(tech => (
                   <div key={tech.name} className="flex items-center gap-1.5 text-xs text-gray-500 bg-[#080028] px-2.5 py-1 rounded border border-[#2a2250]">
                     <span className={`w-1.5 h-1.5 rounded-full ${tech.color}`} />
@@ -348,6 +293,14 @@ export function Portfolio() {
                   </div>
                 ))}
               </div>
+
+              <Link
+                href={`/portfolio/${project.slug}`}
+                className="mt-4 inline-flex items-center gap-2 text-sm font-semibold text-[#FFCC99] hover:gap-3 transition-all duration-200 group/link"
+              >
+                Ver Case Completo
+                <ArrowRight className="w-4 h-4 group-hover/link:translate-x-1 transition-transform" />
+              </Link>
             </div>
           </motion.div>
         ))}
