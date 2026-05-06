@@ -2,7 +2,6 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
-import Image from 'next/image';
 import { ArrowRight } from 'lucide-react';
 import { motion } from 'motion/react';
 import { projects as allProjects } from '@/lib/projects';
@@ -15,10 +14,12 @@ function VisualConectFrota() {
   return (
     <div className="w-full h-full bg-slate-900 p-5 flex flex-col gap-3 relative overflow-hidden">
       <div className="absolute top-0 right-0 w-48 h-48 bg-blue-500/10 rounded-full blur-3xl" />
+      {/* Header bar */}
       <div className="flex items-center justify-between mb-1">
         <div className="text-[10px] text-slate-400 font-semibold uppercase tracking-wider">Conect Frota</div>
         <div className="flex items-center gap-1 text-[10px] text-emerald-400"><span className="w-1.5 h-1.5 rounded-full bg-emerald-400 inline-block" /> Online</div>
       </div>
+      {/* Stats row */}
       <div className="grid grid-cols-3 gap-2">
         {[{ label: 'Veículos', val: '142' }, { label: 'TACs Ativos', val: '38' }, { label: 'Multas', val: '7' }].map((s, i) => (
           <div key={i} className="bg-[#080028]/60 border border-[#2a2250] rounded-lg p-2 text-center">
@@ -27,6 +28,7 @@ function VisualConectFrota() {
           </div>
         ))}
       </div>
+      {/* Vehicle list */}
       <div className="flex flex-col gap-1.5 transform group-hover:scale-[1.02] transition-transform duration-500">
         {[
           { placa: 'ABC-1234', status: 'Em rota', color: 'bg-emerald-500' },
@@ -51,11 +53,13 @@ function VisualMonicaSoltau() {
     <div className="w-full h-full bg-gradient-to-br from-green-950 to-slate-900 p-5 flex flex-col gap-3 relative overflow-hidden">
       <div className="absolute bottom-0 right-0 w-40 h-40 bg-green-500/10 rounded-full blur-2xl" />
       <div className="text-[10px] text-green-400 font-semibold uppercase tracking-wider mb-1">Portal Mônica Soltau</div>
+      {/* Filter chips */}
       <div className="flex flex-wrap gap-1.5">
         {['BNCC', 'Habilidades', 'Componentes', 'Palavras-chave'].map((tag, i) => (
           <span key={i} className={`px-2 py-0.5 rounded-full text-[9px] font-medium border ${i === 0 ? 'bg-green-500/20 text-green-300 border-green-500/30' : 'bg-white/5 text-slate-400 border-white/10'}`}>{tag}</span>
         ))}
       </div>
+      {/* Content cards */}
       <div className="flex flex-col gap-2 transform group-hover:scale-[1.02] transition-transform duration-500">
         {['Questão — Campo de Experiência: Natureza', 'Habilidade EF01MA01 — Números Naturais', 'Atividade — Componente: Matemática'].map((item, i) => (
           <div key={i} className="bg-[#080028]/50 border border-green-500/10 rounded-lg px-3 py-2 flex items-center justify-between">
@@ -80,6 +84,7 @@ function VisualSabbado() {
   return (
     <div className="w-full h-full p-5 flex items-center justify-center relative bg-indigo-950">
       <div className="absolute inset-0 bg-gradient-to-br from-indigo-900/40 to-purple-900/20" />
+      {/* Browser mockup */}
       <div className="w-full max-w-xs bg-white rounded-xl shadow-2xl overflow-hidden transform group-hover:scale-105 transition-transform duration-500 relative z-10">
         <div className="h-7 bg-gray-100 border-b border-gray-200 flex items-center px-3 gap-1.5">
           <div className="w-2 h-2 rounded-full bg-red-400" />
@@ -87,6 +92,7 @@ function VisualSabbado() {
           <div className="w-2 h-2 rounded-full bg-green-400" />
           <div className="flex-1 h-3 bg-gray-200 rounded-full mx-2" />
         </div>
+        {/* Three-column nav representing 3 fronts of Grupo Sabbado */}
         <div className="flex border-b border-gray-100">
           {['Assessoria', 'Consultoria', 'Capacitação'].map((tab, i) => (
             <div key={i} className={`flex-1 py-1.5 text-center text-[8px] font-semibold ${i === 0 ? 'text-indigo-600 border-b-2 border-indigo-500' : 'text-gray-400'}`}>{tab}</div>
@@ -108,6 +114,7 @@ function VisualHKMidia() {
     <div className="w-full h-full flex items-center justify-center relative bg-teal-950">
       <div className="absolute inset-0 bg-gradient-to-tr from-teal-900/40 to-blue-900/20" />
       <div className="flex gap-3 relative z-10 items-start transform group-hover:scale-105 transition-transform duration-500">
+        {/* Mobile */}
         <div className="w-28 h-52 bg-black border-4 border-gray-800 rounded-[1.5rem] overflow-hidden shadow-2xl">
           <div className="bg-[#0f1a2e] w-full h-full pt-5 px-2 flex flex-col gap-2">
             <div className="text-[8px] text-teal-400 font-bold">Minha Turma</div>
@@ -123,6 +130,7 @@ function VisualHKMidia() {
             <div className="mt-auto bg-teal-500/20 rounded-md p-1.5 text-[7px] text-teal-300 text-center">Nova mensagem ✓</div>
           </div>
         </div>
+        {/* Stat card */}
         <div className="flex flex-col gap-2 mt-6">
           {[{ label: 'Famílias', val: '240' }, { label: 'Escolas', val: '12' }].map((s, i) => (
             <div key={i} className="bg-[#080028]/70 border border-teal-500/20 rounded-xl p-3 w-24 text-center">
@@ -148,6 +156,7 @@ function VisualMotriz() {
           ))}
         </div>
       </div>
+      {/* Dashboard metrics */}
       <div className="grid grid-cols-2 gap-2 transform group-hover:scale-[1.02] transition-transform duration-500">
         <div className="bg-[#080028]/50 border border-orange-500/10 rounded-lg p-2">
           <div className="text-[9px] text-slate-400 mb-1">Formulários</div>
@@ -164,6 +173,7 @@ function VisualMotriz() {
           </div>
         </div>
       </div>
+      {/* Bar chart */}
       <div className="flex-1 flex items-end gap-1 bg-[#080028]/30 rounded-lg p-2">
         {[60, 75, 50, 90, 65, 80, 95].map((h, i) => (
           <motion.div
@@ -179,46 +189,22 @@ function VisualMotriz() {
   );
 }
 
-/* ── Visual map ──────────────────────────────────────────── */
+/* ── Data (Visuals injetados nos dados centralizados) ────────── */
 
 type VisualComponent = () => React.JSX.Element;
 
 const visualMap: Record<string, VisualComponent> = {
-  'conect-frota':    VisualConectFrota,
-  'monica-soltau':   VisualMonicaSoltau,
-  'sabbado':         VisualSabbado,
-  'hk-midia':        VisualHKMidia,
-  'escola-tem-voz':  VisualMotriz,
+  'conect-frota': VisualConectFrota,
+  'monica-soltau': VisualMonicaSoltau,
+  'sabbado': VisualSabbado,
+  'hk-midia': VisualHKMidia,
+  'escola-tem-voz': VisualMotriz,
 };
 
-const projects = allProjects.map((p) => ({ ...p, Visual: visualMap[p.slug] }));
-
-/* ── Sub-components ──────────────────────────────────────── */
-
-/** Badge de métrica exibido sobre o visual */
-function MetricBadge({ value, label, large = false }: { value: string; label: string; large?: boolean }) {
-  return (
-    <div className="bg-[#080028]/75 backdrop-blur-sm border border-[#FFCC99]/25 rounded-xl px-3 py-2">
-      <div className={`font-bold text-[#FFCC99] leading-none ${large ? 'text-2xl' : 'text-lg'}`}>{value}</div>
-      <div className="text-[9px] text-gray-400 mt-0.5 whitespace-nowrap">{label}</div>
-    </div>
-  );
-}
-
-/** Overlay com screenshot real — aparece no hover */
-function ScreenshotOverlay({ src, title }: { src: string; title: string }) {
-  return (
-    <div className="absolute inset-0 z-[8] opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-      <Image
-        src={src}
-        alt={`Screenshot: ${title}`}
-        fill
-        className="object-cover"
-        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-      />
-    </div>
-  );
-}
+const projects = allProjects.map((p) => ({
+  ...p,
+  Visual: visualMap[p.slug],
+}));
 
 /* ── Component ───────────────────────────────────────────── */
 
@@ -262,142 +248,64 @@ export function Portfolio() {
         ))}
       </div>
 
-      {/* Bento Grid */}
+      {/* Grid uniforme */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {filtered.map((project, index) => {
-          const isFeatured = index === 0 && filtered.length >= 2;
+        {filtered.map((project, index) => (
+          <motion.div
+            key={project.title}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.4, delay: index * 0.08 }}
+            className="group relative bg-[var(--color-surface)] border border-[#2a2250] rounded-2xl overflow-hidden hover:border-[#FFCC99]/50 transition-all duration-300 shadow-xl shadow-black/20 flex flex-col cursor-pointer"
+          >
+            {/* Visual Preview */}
+            <div className="relative overflow-hidden h-56 flex-shrink-0">
+              <div className="absolute inset-0 bg-gradient-to-t from-[#0f0535] to-transparent z-10 opacity-50 pointer-events-none" />
+              <project.Visual />
+            </div>
 
-          return (
-            <motion.div
-              key={project.title}
-              layout
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.4, delay: index * 0.07 }}
-              className={`group relative bg-[var(--color-surface)] border border-[#2a2250] rounded-2xl overflow-hidden hover:border-[#FFCC99]/50 transition-all duration-300 shadow-xl shadow-black/20 flex flex-col cursor-pointer ${
-                isFeatured ? 'lg:col-span-2' : ''
-              }`}
-            >
-              {isFeatured ? (
-                /* ── Featured card: layout horizontal em lg ── */
-                <div className="flex flex-col lg:flex-row h-full">
-                  {/* Visual */}
-                  <div className="relative overflow-hidden h-64 lg:h-auto lg:flex-1">
-                    <project.Visual />
-                    {project.images[0] && (
-                      <ScreenshotOverlay src={project.images[0]} title={project.title} />
-                    )}
-                    {/* Gradiente mobile: baixo → cima */}
-                    <div className="lg:hidden absolute inset-0 z-10 pointer-events-none bg-gradient-to-t from-[#0f0535]/80 to-transparent" />
-                    {/* Gradiente desktop: direita → transparente (transição para o conteúdo) */}
-                    <div className="hidden lg:block absolute inset-0 z-10 pointer-events-none bg-gradient-to-r from-transparent to-[#0f0535]" />
-                    {/* Métrica */}
-                    {project.metric && (
-                      <div className="absolute top-4 left-4 z-20">
-                        <MetricBadge value={project.metric.value} label={project.metric.label} large />
-                      </div>
-                    )}
+            {/* Content */}
+            <div className="p-6 flex flex-col flex-1">
+              <div className="flex gap-2 mb-3 flex-wrap">
+                <span className={`px-3 py-1 text-[10px] uppercase tracking-wider font-bold rounded-full border ${project.sectorColor}`}>
+                  {project.sector}
+                </span>
+                <span className="px-3 py-1 text-[10px] uppercase tracking-wider font-bold bg-gray-700/50 text-gray-300 rounded-full border border-gray-600/30">
+                  {project.category}
+                </span>
+              </div>
+
+              <p className="text-[11px] text-[#FFCC99]/70 mb-1 font-medium">{project.client}</p>
+
+              <h3 className="text-lg font-bold text-white mb-2 group-hover:text-[#FFCC99] transition-colors">
+                {project.title}
+              </h3>
+              <p className="text-gray-400 text-sm mb-5 leading-relaxed flex-1">
+                {project.description}
+              </p>
+
+              <div className="flex flex-wrap gap-2">
+                {project.techs.map(tech => (
+                  <div key={tech.name} className="flex items-center gap-1.5 text-xs text-gray-500 bg-[#080028] px-2.5 py-1 rounded border border-[#2a2250]">
+                    <span className={`w-1.5 h-1.5 rounded-full ${tech.color}`} />
+                    {tech.name}
                   </div>
+                ))}
+              </div>
 
-                  {/* Conteúdo */}
-                  <div className="p-6 flex flex-col lg:w-80 flex-shrink-0">
-                    <div className="flex gap-2 mb-3 flex-wrap">
-                      <span className={`px-3 py-1 text-[10px] uppercase tracking-wider font-bold rounded-full border ${project.sectorColor}`}>
-                        {project.sector}
-                      </span>
-                      <span className="px-3 py-1 text-[10px] uppercase tracking-wider font-bold bg-gray-700/50 text-gray-300 rounded-full border border-gray-600/30">
-                        {project.category}
-                      </span>
-                    </div>
-
-                    <p className="text-[11px] text-[#FFCC99]/70 mb-1 font-medium">{project.client}</p>
-
-                    <h3 className="text-xl font-bold text-white mb-3 group-hover:text-[#FFCC99] transition-colors">
-                      {project.title}
-                    </h3>
-                    <p className="text-gray-400 text-sm mb-5 leading-relaxed flex-1">
-                      {project.description}
-                    </p>
-
-                    <div className="flex flex-wrap gap-2 mb-5">
-                      {project.techs.map(tech => (
-                        <div key={tech.name} className="flex items-center gap-1.5 text-xs text-gray-500 bg-[#080028] px-2.5 py-1 rounded border border-[#2a2250]">
-                          <span className={`w-1.5 h-1.5 rounded-full ${tech.color}`} />
-                          {tech.name}
-                        </div>
-                      ))}
-                    </div>
-
-                    <Link
-                      href={`/portfolio/${project.slug}`}
-                      className="inline-flex items-center gap-2 text-sm font-semibold text-[#FFCC99] transition-all duration-200 after:absolute after:inset-0"
-                      aria-label={`Ver case completo: ${project.title}`}
-                    >
-                      Ver Case Completo
-                      <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform relative z-10" />
-                    </Link>
-                  </div>
-                </div>
-              ) : (
-                /* ── Card regular: layout vertical ── */
-                <>
-                  <div className="relative overflow-hidden h-56 flex-shrink-0">
-                    <project.Visual />
-                    {project.images[0] && (
-                      <ScreenshotOverlay src={project.images[0]} title={project.title} />
-                    )}
-                    <div className="absolute inset-0 bg-gradient-to-t from-[#0f0535] to-transparent z-10 opacity-50 pointer-events-none" />
-                    {/* Métrica */}
-                    {project.metric && (
-                      <div className="absolute top-3 right-3 z-20">
-                        <MetricBadge value={project.metric.value} label={project.metric.label} />
-                      </div>
-                    )}
-                  </div>
-
-                  <div className="p-6 flex flex-col flex-1">
-                    <div className="flex gap-2 mb-3 flex-wrap">
-                      <span className={`px-3 py-1 text-[10px] uppercase tracking-wider font-bold rounded-full border ${project.sectorColor}`}>
-                        {project.sector}
-                      </span>
-                      <span className="px-3 py-1 text-[10px] uppercase tracking-wider font-bold bg-gray-700/50 text-gray-300 rounded-full border border-gray-600/30">
-                        {project.category}
-                      </span>
-                    </div>
-
-                    <p className="text-[11px] text-[#FFCC99]/70 mb-1 font-medium">{project.client}</p>
-
-                    <h3 className="text-lg font-bold text-white mb-2 group-hover:text-[#FFCC99] transition-colors">
-                      {project.title}
-                    </h3>
-                    <p className="text-gray-400 text-sm mb-5 leading-relaxed flex-1">
-                      {project.description}
-                    </p>
-
-                    <div className="flex flex-wrap gap-2">
-                      {project.techs.map(tech => (
-                        <div key={tech.name} className="flex items-center gap-1.5 text-xs text-gray-500 bg-[#080028] px-2.5 py-1 rounded border border-[#2a2250]">
-                          <span className={`w-1.5 h-1.5 rounded-full ${tech.color}`} />
-                          {tech.name}
-                        </div>
-                      ))}
-                    </div>
-
-                    <Link
-                      href={`/portfolio/${project.slug}`}
-                      className="mt-4 inline-flex items-center gap-2 text-sm font-semibold text-[#FFCC99] transition-all duration-200 after:absolute after:inset-0"
-                      aria-label={`Ver case completo: ${project.title}`}
-                    >
-                      Ver Case Completo
-                      <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform relative z-10" />
-                    </Link>
-                  </div>
-                </>
-              )}
-            </motion.div>
-          );
-        })}
+              {/* Stretched link — cobre o card inteiro, mantendo outros elementos clicáveis acima */}
+              <Link
+                href={`/portfolio/${project.slug}`}
+                className="mt-4 inline-flex items-center gap-2 text-sm font-semibold text-[#FFCC99] transition-all duration-200 group/link after:absolute after:inset-0"
+                aria-label={`Ver case completo: ${project.title}`}
+              >
+                Ver Case Completo
+                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform relative z-10" />
+              </Link>
+            </div>
+          </motion.div>
+        ))}
       </div>
     </section>
   );

@@ -3,11 +3,6 @@ export type Tech = {
   color: string;
 };
 
-export type Metric = {
-  value: string;
-  label: string;
-};
-
 export type Project = {
   slug: string;
   category: string;
@@ -17,7 +12,6 @@ export type Project = {
   title: string;
   description: string;
   techs: Tech[];
-  metric?: Metric;
   /** Caminhos relativos à pasta /public — ex: '/portfolio/conect-frota/01.png' */
   images: string[];
 };
@@ -37,7 +31,6 @@ export const projects: Project[] = [
       { name: 'Mobile', color: 'bg-indigo-500' },
       { name: 'Gestão de Frota', color: 'bg-slate-400' },
     ],
-    metric: { value: '142', label: 'veículos gerenciados' },
     images: [
       '/portfolio/conect-frota/01.png',
       '/portfolio/conect-frota/02.png',
@@ -63,7 +56,6 @@ export const projects: Project[] = [
       { name: 'Mobile', color: 'bg-teal-500' },
       { name: 'BNCC', color: 'bg-emerald-400' },
     ],
-    metric: { value: '18', label: 'escolas atendidas' },
     images: [
       '/portfolio/monica-soltau/01.png',
       '/portfolio/monica-soltau/02.png',
@@ -92,7 +84,6 @@ export const projects: Project[] = [
       { name: 'Multi-seção', color: 'bg-indigo-400' },
       { name: 'SEO', color: 'bg-pink-400' },
     ],
-    metric: { value: '3', label: 'frentes integradas' },
     images: [
       '/portfolio/sabbado/01.png',
       '/portfolio/sabbado/02.png',
@@ -119,7 +110,6 @@ export const projects: Project[] = [
       { name: 'Mobile', color: 'bg-cyan-400' },
       { name: 'Multi-perfil', color: 'bg-blue-400' },
     ],
-    metric: { value: '240', label: 'famílias conectadas' },
     images: [
       '/portfolio/hk-midia/01.png',
       '/portfolio/hk-midia/02.png',
@@ -147,7 +137,6 @@ export const projects: Project[] = [
       { name: 'Multi-idioma', color: 'bg-yellow-400' },
       { name: 'Dashboard', color: 'bg-red-400' },
     ],
-    metric: { value: '1.840', label: 'formulários coletados' },
     images: [
       '/portfolio/escola-tem-voz/01.png',
       '/portfolio/escola-tem-voz/02.png',
