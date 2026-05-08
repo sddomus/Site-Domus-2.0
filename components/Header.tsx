@@ -1,11 +1,14 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import Link from 'next/link';
 import Image from 'next/image';
 import { Menu, X } from 'lucide-react';
+import { useTranslations } from 'next-intl';
+import { Link } from '@/lib/navigation';
+import { LanguageSwitcher } from '@/components/LanguageSwitcher';
 
 export function Header() {
+  const t = useTranslations('header');
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
@@ -14,6 +17,13 @@ export function Header() {
     window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
+  const navItems = [
+    { labelKey: 'nav.services' as const, href: '#servicos' },
+    { labelKey: 'nav.about' as const, href: '#sobre-nos' },
+    { labelKey: 'nav.methodology' as const, href: '#metodologia' },
+    { labelKey: 'nav.cases' as const, href: '#casos-de-sucesso' },
+  ];
 
   return (
     <header
@@ -38,30 +48,26 @@ export function Header() {
 
         {/* Desktop Nav */}
         <nav className="hidden md:flex items-center gap-8">
-          {[
-            { label: 'Serviços', href: '#servicos' },
-            { label: 'Sobre Nós', href: '#sobre-nos' },
-            { label: 'Metodologia', href: '#metodologia' },
-            { label: 'Casos de Sucesso', href: '#casos-de-sucesso' },
-          ].map((item) => (
+          {navItems.map((item) => (
             <Link
-              key={item.label}
+              key={item.labelKey}
               href={item.href}
               className="text-sm font-medium text-gray-300 hover:text-[#FFCC99] transition-colors relative group/link"
             >
-              {item.label}
+              {t(item.labelKey)}
               <span className="absolute -bottom-0.5 left-0 w-0 h-px bg-[#FFCC99] group-hover/link:w-full transition-all duration-300" />
             </Link>
           ))}
         </nav>
 
-        {/* CTA Button */}
-        <div className="hidden md:block">
+        {/* Desktop CTA + Switcher */}
+        <div className="hidden md:flex items-center gap-3">
+          <LanguageSwitcher />
           <Link
             href="#contato"
             className="bg-[#FFCC99] text-[#080028] px-6 py-2.5 rounded-full text-sm font-semibold hover:scale-105 hover:shadow-[0_0_20px_rgba(255,204,153,0.3)] transition-all duration-300 inline-block"
           >
-            Fale com um Especialista
+            {t('cta')}
           </Link>
         </div>
 
@@ -78,27 +84,25 @@ export function Header() {
       {isMobileMenuOpen && (
         <div className="md:hidden bg-[#080028]/95 backdrop-blur-xl border-t border-[#FFCC99]/10">
           <nav className="flex flex-col px-6 py-4 gap-4">
-            {[
-              { label: 'Serviços', href: '#servicos' },
-              { label: 'Sobre Nós', href: '#sobre-nos' },
-              { label: 'Metodologia', href: '#metodologia' },
-              { label: 'Casos de Sucesso', href: '#casos-de-sucesso' },
-            ].map((item) => (
+            {navItems.map((item) => (
               <Link
-                key={item.label}
+                key={item.labelKey}
                 href={item.href}
                 className="text-sm font-medium text-gray-300 hover:text-[#FFCC99] transition-colors"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
-                {item.label}
+                {t(item.labelKey)}
               </Link>
             ))}
+            <div className="flex items-center gap-3 pt-2">
+              <LanguageSwitcher />
+            </div>
             <Link
               href="#contato"
-              className="bg-[#FFCC99] text-[#080028] px-6 py-3 rounded-full text-sm font-semibold text-center mt-2"
+              className="bg-[#FFCC99] text-[#080028] px-6 py-3 rounded-full text-sm font-semibold text-center mt-1"
               onClick={() => setIsMobileMenuOpen(false)}
             >
-              Fale com um Especialista
+              {t('cta')}
             </Link>
           </nav>
         </div>

@@ -1,0 +1,274 @@
+{
+  "metadata": {
+    "title": "Domus Soluções Digitais | Desenvolvimento Low-Code e IA",
+    "description": "Agência especializada em desenvolvimento low-code, apps, sistemas internos e agentes de IA. Entregamos em semanas o que outros levam meses.",
+    "ogTitle": "Domus Soluções Digitais | Desenvolvimento Low-Code e IA",
+    "ogDescription": "Agência especializada em desenvolvimento low-code, apps, sistemas internos e agentes de IA. Entregamos em semanas o que outros levam meses.",
+    "ogSiteName": "Domus Soluções Digitais"
+  },
+  "header": {
+    "nav": {
+      "services": "Serviços",
+      "about": "Sobre Nós",
+      "methodology": "Metodologia",
+      "cases": "Casos de Sucesso"
+    },
+    "cta": "Fale com um Especialista"
+  },
+  "introOverlay": {
+    "scrollHint": "Role para explorar"
+  },
+  "hero": {
+    "badge": "Agência Especializada Low-Code e IA",
+    "headline": "Inovação Digital em",
+    "typewriterPhrases": ["Alta Velocidade", "Resultados Reais", "Tempo Recorde", "Máxima Precisão"],
+    "description": "Aceleramos a transformação do seu negócio com soluções sob medida, design focado em conversão e tecnologia de ponta.",
+    "ctaPrimary": "Fale com um Especialista",
+    "ctaSecondary": "Ver Casos de Sucesso",
+    "terminal": {
+      "steps": [
+        { "text": "$ npm run build", "color": "text-gray-400" },
+        { "text": "✓ Dependências resolvidas", "color": "text-emerald-400" },
+        { "text": "✓ Componentes compilados", "color": "text-emerald-400" },
+        { "text": "✓ Assets otimizados", "color": "text-emerald-400" },
+        { "text": "✓ Testes: 24/24 passed", "color": "text-emerald-400" },
+        { "text": "✓ Build concluído em 4.2s", "color": "text-emerald-400" },
+        { "text": "🚀 Deploy em produção!", "color": "text-[#FFCC99] font-semibold" }
+      ],
+      "metricsLabel": "Métricas ao vivo",
+      "metrics": {
+        "responseTime": "Tempo de resposta",
+        "performance": "Performance",
+        "uptime": "Uptime",
+        "requestsPerMin": "Requests/min"
+      }
+    },
+    "aiCard": {
+      "agentName": "Agente Domus",
+      "prompt": "Crie um agente de atendimento para e-commerce",
+      "response": "Claro! Vou configurar um agente com memória de contexto, integração ao seu CRM e respostas em tempo real..."
+    },
+    "velocityCard": {
+      "label": "Velocidade",
+      "days": "21 dias",
+      "subtitle": "entrega\nmédia"
+    }
+  },
+  "services": {
+    "sectionTitle": "Nossas",
+    "sectionTitleHighlight": "Especialidades",
+    "sectionDescription": "Desenvolvemos soluções robustas com design focado em conversão, utilizando as melhores tecnologias do mercado.",
+    "learnMore": "Saiba mais",
+    "internalSystems": {
+      "title": "Sistemas Internos",
+      "description": "Automatize processos e centralize a gestão da sua empresa com ERPs e CRMs personalizados, desenvolvidos para escalar junto com o seu negócio."
+    },
+    "customApps": {
+      "title": "Apps Personalizados",
+      "description": "Aplicativos móveis e web responsivos, com interfaces intuitivas e alta performance para engajar seus usuários."
+    },
+    "websites": {
+      "title": "Sites de Alta Conversão",
+      "description": "Landing pages e sites institucionais ultrarrápidos, otimizados para SEO e focados em transformar visitantes em clientes."
+    },
+    "aiAgents": {
+      "title": "Agentes Autônomos de IA",
+      "description": "Desenvolvemos agentes de inteligência artificial capazes de raciocinar, tomar decisões e executar fluxos de trabalho complexos de forma autônoma e ininterrupta."
+    }
+  },
+  "about": {
+    "badge": "Nossa História",
+    "headline": "Nascemos para transformar ideias em software que gera resultados.",
+    "p1": "A Domus nasceu da frustração com projetos que demoram demais, custam caro e entregam pouco. Reunimos especialistas em low-code, IA e design para criar uma agência diferente: focada em velocidade real, qualidade genuína e parcerias de longo prazo.",
+    "p2": "Hoje atendemos empresas de todos os portes, de startups em fase inicial a corporações que precisam modernizar processos internos — sempre com o mesmo compromisso: entregar valor rápido e construir bases sólidas para escalar.",
+    "values": {
+      "speed": {
+        "title": "Velocidade",
+        "description": "Entregamos em semanas o que o mercado leva meses. Sem burocracia, sem enrolação."
+      },
+      "precision": {
+        "title": "Precisão",
+        "description": "Cada linha de código e cada decisão de design existem para servir um objetivo: o resultado do seu negócio."
+      },
+      "partnership": {
+        "title": "Parceria",
+        "description": "Não somos fornecedores — somos o time de tecnologia que a sua empresa precisa para crescer."
+      }
+    }
+  },
+  "whyChooseUs": {
+    "badge": "O Método Domus",
+    "headlineStart": "Meses de desenvolvimento entregues em",
+    "headlineEnd": "semanas.",
+    "description": "Não somos apenas codificadores. Combinamos a velocidade das plataformas modernas com arquiteturas de código limpo para entregar o software que o seu negócio precisa hoje, não no ano que vem.",
+    "items": {
+      "speed": {
+        "title": "Velocidade Extrema",
+        "description": "Utilizamos frameworks modernos e metodologias ágeis para acelerar o time-to-market do seu produto sem abrir mão da qualidade."
+      },
+      "security": {
+        "title": "Segurança Enterprise",
+        "description": "Arquiteturas robustas com as melhores práticas de segurança do mercado, garantindo a proteção dos dados da sua empresa e dos seus clientes."
+      },
+      "scalability": {
+        "title": "Escalabilidade",
+        "description": "Sistemas preparados para crescer. Construímos bases sólidas que suportam o aumento de tráfego e volume de dados sem gargalos."
+      },
+      "uiux": {
+        "title": "UI/UX Premium",
+        "description": "Interfaces deslumbrantes e intuitivas focadas na jornada do usuário, maximizando a retenção e as taxas de conversão."
+      }
+    }
+  },
+  "stats": {
+    "projects": "Projetos",
+    "satisfaction": "Satisfação",
+    "years": "Anos",
+    "delays": "Atrasos",
+    "delaysValue": "Zero"
+  },
+  "portfolio": {
+    "badge": "Nossos Cases",
+    "title": "Casos de",
+    "titleHighlight": "Sucesso",
+    "description": "Projetos reais entregues para empresas que confiaram na Domus para transformar seus desafios em soluções digitais.",
+    "filters": {
+      "all": "Todos",
+      "webApps": "Web Apps",
+      "mobileApps": "Aplicativos Mobile",
+      "education": "Educação",
+      "management": "Gestão"
+    },
+    "viewCase": "Ver Case Completo",
+    "projects": {
+      "conect-frota": {
+        "title": "Sistema Conect Frota",
+        "category": "Gestão",
+        "sector": "Transporte",
+        "description": "Plataforma web e mobile para gestão de motoristas autônomos (TAC), controle de multas, IPVA, DPVAT e licenciamento obrigatório da frota de veículos.",
+        "techs": ["Web Desktop", "Mobile", "Gestão de Frota"]
+      },
+      "monica-soltau": {
+        "title": "Portal Mônica Soltau",
+        "category": "Educação",
+        "sector": "Ed-Tech",
+        "description": "Software customizado e aplicativo para consulta e impressão de conteúdos educacionais alinhados à BNCC, com gestão de usuários por município, escola e perfil de acesso.",
+        "techs": ["Web App", "Mobile", "BNCC"]
+      },
+      "sabbado": {
+        "title": "Portal Integrado Sabbado",
+        "category": "Web Apps",
+        "sector": "Licitações",
+        "description": "Portal institucional integrado com navegação segmentada nas três frentes do Grupo Sabbado — Assessoria, Consultoria e Capacitação em Licitações — em um único endereço web.",
+        "techs": ["Portal Institucional", "Multi-seção", "SEO"]
+      },
+      "hk-midia": {
+        "title": "Plataforma HK Mídia",
+        "category": "Aplicativos Mobile",
+        "sector": "Educação & Saúde",
+        "description": "Aplicação web e mobile para gestão de programa de educação: monitoramento de famílias, alunos e escolas, e comunicação integrada entre alunos, familiares, professores e profissionais de saúde.",
+        "techs": ["Web App", "Mobile", "Multi-perfil"]
+      },
+      "escola-tem-voz": {
+        "title": "Minha Escola tem Voz",
+        "category": "Educação",
+        "sector": "GovTech",
+        "description": "Aplicação web com suporte a múltiplos idiomas, formulários configuráveis, envio de lembretes, perfil de acesso para Secretaria de Educação, métricas de uso e dashboard analítico.",
+        "techs": ["Web App", "Multi-idioma", "Dashboard"]
+      }
+    }
+  },
+  "faq": {
+    "title": "Dúvidas",
+    "titleHighlight": "Frequentes",
+    "items": [
+      {
+        "question": "Qual o prazo médio de entrega?",
+        "answer": "Nosso foco é a velocidade sem perder a qualidade. Projetos de landing pages e sites institucionais levam em média 2 a 4 semanas. Sistemas internos e apps complexos variam de 6 a 12 semanas, dependendo do escopo."
+      },
+      {
+        "question": "Vocês oferecem suporte pós-lançamento?",
+        "answer": "Sim! Acreditamos em parcerias de longo prazo. Oferecemos pacotes de manutenção e suporte contínuo para garantir que seu software continue escalando e performando com excelência."
+      },
+      {
+        "question": "Como funciona o desenvolvimento low-code?",
+        "answer": "Utilizamos plataformas modernas que aceleram a criação de interfaces e lógicas de negócios, combinadas com código customizado (Next.js, Node.js) onde a performance e a exclusividade são críticas. É o melhor dos dois mundos."
+      },
+      {
+        "question": "Os agentes de IA são seguros para os dados da minha empresa?",
+        "answer": "Absolutamente. Implementamos arquiteturas de IA com isolamento de dados, garantindo que as informações da sua empresa não sejam usadas para treinar modelos públicos. A segurança e privacidade são nossas prioridades."
+      }
+    ]
+  },
+  "contact": {
+    "headline": "Vamos transformar sua ideia em",
+    "headlineHighlight": "software?",
+    "description": "Seja para um app disruptivo ou um agente de IA personalizado, o primeiro passo é uma conversa estratégica. Preencha o formulário e entraremos em contato.",
+    "emailLabel": "E-mail",
+    "whatsappLabel": "WhatsApp",
+    "locationLabel": "Localização",
+    "locationValue": "Atendimento Global / Remoto",
+    "form": {
+      "nameLabel": "Nome Completo",
+      "namePlaceholder": "Como podemos te chamar?",
+      "emailLabel": "E-mail Profissional",
+      "emailPlaceholder": "seu@email.com",
+      "phoneLabel": "Telefone",
+      "phonePlaceholder": "(XX) 9XXXX-XXXX",
+      "subjectLabel": "Assunto / Serviço",
+      "subjectPlaceholder": "Selecione o serviço desejado...",
+      "subjectOptions": {
+        "internalSystems": "Sistemas Internos (ERPs/CRMs)",
+        "customApps": "Apps Personalizados",
+        "websites": "Sites de Alta Conversão",
+        "aiAgents": "Agentes de IA",
+        "other": "Outros"
+      },
+      "messageLabel": "Mensagem",
+      "messagePlaceholder": "Conte-nos um pouco sobre o seu projeto...",
+      "submit": "Enviar Mensagem",
+      "submitting": "Enviando...",
+      "success": "Mensagem enviada com sucesso!",
+      "emailSubject": "Novo contato de {name} — {subject}"
+    }
+  },
+  "cta": {
+    "headline": "Pronto para escalar sua operação?",
+    "description": "Junte-se às empresas que já aceleraram sua transformação digital com a Domus. Agende uma consultoria gratuita e descubra o potencial do seu negócio.",
+    "button": "Agendar Consultoria Gratuita",
+    "socialProof": "Faça parte do",
+    "socialProofHighlight": "ecossistema Domus"
+  },
+  "footer": {
+    "mission": "Transformando visão em realidade digital. Somos especialistas em criar soluções de software de alta performance e design focado em conversão.",
+    "companyColumn": "Empresa",
+    "servicesColumn": "Serviços",
+    "nav": {
+      "about": "Sobre Nós",
+      "methodology": "Metodologia",
+      "cases": "Casos de Sucesso",
+      "contact": "Contato"
+    },
+    "services": {
+      "internalSystems": "Sistemas Internos",
+      "customApps": "Apps Personalizados",
+      "websites": "Sites de Alta Conversão",
+      "aiAgents": "Agentes de IA"
+    },
+    "copyright": "Todos os direitos reservados.",
+    "privacy": "Privacidade",
+    "terms": "Termos de Uso"
+  },
+  "whatsapp": {
+    "tooltip": "Fale conosco",
+    "ariaLabel": "Fale conosco no WhatsApp",
+    "message": "Olá%2C%20gostaria%20de%20saber%20mais%20sobre%20os%20serviços%20da%20Domus!"
+  },
+  "portfolioPage": {
+    "backLink": "Voltar para Cases",
+    "galleryTitle": "Galeria do Projeto",
+    "ctaText": "Quer um projeto assim para o seu negócio?",
+    "ctaButton": "Fale com um Especialista",
+    "imagesComingSoon": "Imagens em breve — adicione screenshots em"
+  }
+}

@@ -1,12 +1,14 @@
 'use client';
 
 import { useState } from 'react';
-import Link from 'next/link';
+import { Link } from '@/lib/navigation';
 import { ArrowRight } from 'lucide-react';
 import { motion } from 'motion/react';
 import { projects as allProjects } from '@/lib/projects';
+import { useTranslations } from 'next-intl';
 
-const filters = ['Todos', 'Web Apps', 'Aplicativos Mobile', 'Educação', 'Gestão'];
+const FILTER_IDS = ['all', 'webApps', 'mobileApps', 'education', 'management'] as const;
+type FilterId = typeof FILTER_IDS[number];
 
 /* ── Visuals ─────────────────────────────────────────────── */
 
@@ -14,12 +16,10 @@ function VisualConectFrota() {
   return (
     <div className="w-full h-full bg-slate-900 p-5 flex flex-col gap-3 relative overflow-hidden">
       <div className="absolute top-0 right-0 w-48 h-48 bg-blue-500/10 rounded-full blur-3xl" />
-      {/* Header bar */}
       <div className="flex items-center justify-between mb-1">
         <div className="text-[10px] text-slate-400 font-semibold uppercase tracking-wider">Conect Frota</div>
         <div className="flex items-center gap-1 text-[10px] text-emerald-400"><span className="w-1.5 h-1.5 rounded-full bg-emerald-400 inline-block" /> Online</div>
       </div>
-      {/* Stats row */}
       <div className="grid grid-cols-3 gap-2">
         {[{ label: 'Veículos', val: '142' }, { label: 'TACs Ativos', val: '38' }, { label: 'Multas', val: '7' }].map((s, i) => (
           <div key={i} className="bg-[#080028]/60 border border-[#2a2250] rounded-lg p-2 text-center">
@@ -28,7 +28,6 @@ function VisualConectFrota() {
           </div>
         ))}
       </div>
-      {/* Vehicle list */}
       <div className="flex flex-col gap-1.5 transform group-hover:scale-[1.02] transition-transform duration-500">
         {[
           { placa: 'ABC-1234', status: 'Em rota', color: 'bg-emerald-500' },
@@ -53,13 +52,11 @@ function VisualMonicaSoltau() {
     <div className="w-full h-full bg-gradient-to-br from-green-950 to-slate-900 p-5 flex flex-col gap-3 relative overflow-hidden">
       <div className="absolute bottom-0 right-0 w-40 h-40 bg-green-500/10 rounded-full blur-2xl" />
       <div className="text-[10px] text-green-400 font-semibold uppercase tracking-wider mb-1">Portal Mônica Soltau</div>
-      {/* Filter chips */}
       <div className="flex flex-wrap gap-1.5">
         {['BNCC', 'Habilidades', 'Componentes', 'Palavras-chave'].map((tag, i) => (
           <span key={i} className={`px-2 py-0.5 rounded-full text-[9px] font-medium border ${i === 0 ? 'bg-green-500/20 text-green-300 border-green-500/30' : 'bg-white/5 text-slate-400 border-white/10'}`}>{tag}</span>
         ))}
       </div>
-      {/* Content cards */}
       <div className="flex flex-col gap-2 transform group-hover:scale-[1.02] transition-transform duration-500">
         {['Questão — Campo de Experiência: Natureza', 'Habilidade EF01MA01 — Números Naturais', 'Atividade — Componente: Matemática'].map((item, i) => (
           <div key={i} className="bg-[#080028]/50 border border-green-500/10 rounded-lg px-3 py-2 flex items-center justify-between">
@@ -84,7 +81,6 @@ function VisualSabbado() {
   return (
     <div className="w-full h-full p-5 flex items-center justify-center relative bg-indigo-950">
       <div className="absolute inset-0 bg-gradient-to-br from-indigo-900/40 to-purple-900/20" />
-      {/* Browser mockup */}
       <div className="w-full max-w-xs bg-white rounded-xl shadow-2xl overflow-hidden transform group-hover:scale-105 transition-transform duration-500 relative z-10">
         <div className="h-7 bg-gray-100 border-b border-gray-200 flex items-center px-3 gap-1.5">
           <div className="w-2 h-2 rounded-full bg-red-400" />
@@ -92,7 +88,6 @@ function VisualSabbado() {
           <div className="w-2 h-2 rounded-full bg-green-400" />
           <div className="flex-1 h-3 bg-gray-200 rounded-full mx-2" />
         </div>
-        {/* Three-column nav representing 3 fronts of Grupo Sabbado */}
         <div className="flex border-b border-gray-100">
           {['Assessoria', 'Consultoria', 'Capacitação'].map((tab, i) => (
             <div key={i} className={`flex-1 py-1.5 text-center text-[8px] font-semibold ${i === 0 ? 'text-indigo-600 border-b-2 border-indigo-500' : 'text-gray-400'}`}>{tab}</div>
@@ -114,7 +109,6 @@ function VisualHKMidia() {
     <div className="w-full h-full flex items-center justify-center relative bg-teal-950">
       <div className="absolute inset-0 bg-gradient-to-tr from-teal-900/40 to-blue-900/20" />
       <div className="flex gap-3 relative z-10 items-start transform group-hover:scale-105 transition-transform duration-500">
-        {/* Mobile */}
         <div className="w-28 h-52 bg-black border-4 border-gray-800 rounded-[1.5rem] overflow-hidden shadow-2xl">
           <div className="bg-[#0f1a2e] w-full h-full pt-5 px-2 flex flex-col gap-2">
             <div className="text-[8px] text-teal-400 font-bold">Minha Turma</div>
@@ -130,7 +124,6 @@ function VisualHKMidia() {
             <div className="mt-auto bg-teal-500/20 rounded-md p-1.5 text-[7px] text-teal-300 text-center">Nova mensagem ✓</div>
           </div>
         </div>
-        {/* Stat card */}
         <div className="flex flex-col gap-2 mt-6">
           {[{ label: 'Famílias', val: '240' }, { label: 'Escolas', val: '12' }].map((s, i) => (
             <div key={i} className="bg-[#080028]/70 border border-teal-500/20 rounded-xl p-3 w-24 text-center">
@@ -156,7 +149,6 @@ function VisualMotriz() {
           ))}
         </div>
       </div>
-      {/* Dashboard metrics */}
       <div className="grid grid-cols-2 gap-2 transform group-hover:scale-[1.02] transition-transform duration-500">
         <div className="bg-[#080028]/50 border border-orange-500/10 rounded-lg p-2">
           <div className="text-[9px] text-slate-400 mb-1">Formulários</div>
@@ -173,7 +165,6 @@ function VisualMotriz() {
           </div>
         </div>
       </div>
-      {/* Bar chart */}
       <div className="flex-1 flex items-end gap-1 bg-[#080028]/30 rounded-lg p-2">
         {[60, 75, 50, 90, 65, 80, 95].map((h, i) => (
           <motion.div
@@ -189,8 +180,6 @@ function VisualMotriz() {
   );
 }
 
-/* ── Data (Visuals injetados nos dados centralizados) ────────── */
-
 type VisualComponent = () => React.JSX.Element;
 
 const visualMap: Record<string, VisualComponent> = {
@@ -201,71 +190,68 @@ const visualMap: Record<string, VisualComponent> = {
   'escola-tem-voz': VisualMotriz,
 };
 
-const projects = allProjects.map((p) => ({
-  ...p,
-  Visual: visualMap[p.slug],
-}));
-
 /* ── Component ───────────────────────────────────────────── */
 
 export function Portfolio() {
-  const [activeFilter, setActiveFilter] = useState('Todos');
+  const t = useTranslations('portfolio');
+  const [activeFilter, setActiveFilter] = useState<FilterId>('all');
 
-  const filtered = activeFilter === 'Todos'
-    ? projects
-    : projects.filter(p => p.category === activeFilter);
+  const filtered = allProjects
+    .filter(p => activeFilter === 'all' || p.categoryId === activeFilter)
+    .map(p => ({
+      ...p,
+      title: t(`projects.${p.slug}.title` as any),
+      description: t(`projects.${p.slug}.description` as any),
+      category: t(`projects.${p.slug}.category` as any),
+      sector: t(`projects.${p.slug}.sector` as any),
+      techNames: t.raw(`projects.${p.slug}.techs` as any) as string[],
+      Visual: visualMap[p.slug],
+    }));
 
   return (
     <section id="casos-de-sucesso" className="scroll-mt-24 px-6 max-w-7xl mx-auto w-full">
-      {/* Header */}
       <div className="text-center mb-12">
         <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#0f0535] border border-[#FFCC99]/10 mb-6">
           <span className="w-2 h-2 rounded-full bg-[#FFCC99]" />
-          <span className="text-xs font-medium text-gray-300">Nossos Cases</span>
+          <span className="text-xs font-medium text-gray-300">{t('badge')}</span>
         </div>
         <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-white mb-4">
-          Casos de <span className="text-[#FFCC99] italic">Sucesso</span>
+          {t('title')} <span className="text-[#FFCC99] italic">{t('titleHighlight')}</span>
         </h2>
-        <p className="text-lg text-gray-400 max-w-2xl mx-auto font-light">
-          Projetos reais entregues para empresas que confiaram na Domus para transformar seus desafios em soluções digitais.
-        </p>
+        <p className="text-lg text-gray-400 max-w-2xl mx-auto font-light">{t('description')}</p>
       </div>
 
-      {/* Filters */}
       <div className="flex flex-wrap justify-center gap-3 mb-12">
-        {filters.map(filter => (
+        {FILTER_IDS.map(filterId => (
           <button
-            key={filter}
-            onClick={() => setActiveFilter(filter)}
+            key={filterId}
+            onClick={() => setActiveFilter(filterId)}
             className={`px-5 py-2 rounded-full text-sm font-semibold transition-all duration-200 ${
-              activeFilter === filter
+              activeFilter === filterId
                 ? 'bg-[#FFCC99] text-[#080028] shadow-[0_0_20px_rgba(255,204,153,0.2)]'
                 : 'border border-[#2a2250] bg-[#0f0535]/50 hover:bg-[#0f0535] text-gray-300 hover:text-white'
             }`}
           >
-            {filter}
+            {t(`filters.${filterId}` as any)}
           </button>
         ))}
       </div>
 
-      {/* Grid uniforme */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {filtered.map((project, index) => (
           <motion.div
-            key={project.title}
+            key={project.slug}
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.4, delay: index * 0.08 }}
             className="group relative bg-[var(--color-surface)] border border-[#2a2250] rounded-2xl overflow-hidden hover:border-[#FFCC99]/50 transition-all duration-300 shadow-xl shadow-black/20 flex flex-col cursor-pointer"
           >
-            {/* Visual Preview */}
             <div className="relative overflow-hidden h-56 flex-shrink-0">
               <div className="absolute inset-0 bg-gradient-to-t from-[#0f0535] to-transparent z-10 opacity-50 pointer-events-none" />
               <project.Visual />
             </div>
 
-            {/* Content */}
             <div className="p-6 flex flex-col flex-1">
               <div className="flex gap-2 mb-3 flex-wrap">
                 <span className={`px-3 py-1 text-[10px] uppercase tracking-wider font-bold rounded-full border ${project.sectorColor}`}>
@@ -281,26 +267,23 @@ export function Portfolio() {
               <h3 className="text-lg font-bold text-white mb-2 group-hover:text-[#FFCC99] transition-colors">
                 {project.title}
               </h3>
-              <p className="text-gray-400 text-sm mb-5 leading-relaxed flex-1">
-                {project.description}
-              </p>
+              <p className="text-gray-400 text-sm mb-5 leading-relaxed flex-1">{project.description}</p>
 
               <div className="flex flex-wrap gap-2">
-                {project.techs.map(tech => (
-                  <div key={tech.name} className="flex items-center gap-1.5 text-xs text-gray-500 bg-[#080028] px-2.5 py-1 rounded border border-[#2a2250]">
+                {project.techs.map((tech, i) => (
+                  <div key={i} className="flex items-center gap-1.5 text-xs text-gray-500 bg-[#080028] px-2.5 py-1 rounded border border-[#2a2250]">
                     <span className={`w-1.5 h-1.5 rounded-full ${tech.color}`} />
-                    {tech.name}
+                    {project.techNames[i]}
                   </div>
                 ))}
               </div>
 
-              {/* Stretched link — cobre o card inteiro, mantendo outros elementos clicáveis acima */}
               <Link
                 href={`/portfolio/${project.slug}`}
                 className="mt-4 inline-flex items-center gap-2 text-sm font-semibold text-[#FFCC99] transition-all duration-200 group/link after:absolute after:inset-0"
-                aria-label={`Ver case completo: ${project.title}`}
+                aria-label={`${t('viewCase')}: ${project.title}`}
               >
-                Ver Case Completo
+                {t('viewCase')}
                 <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform relative z-10" />
               </Link>
             </div>

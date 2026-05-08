@@ -3,8 +3,10 @@
 import { motion, useScroll, useTransform, useMotionValueEvent } from 'motion/react';
 import Image from 'next/image';
 import { useState, useEffect, useRef } from 'react';
+import { useTranslations } from 'next-intl';
 
 export function IntroOverlay() {
+  const t = useTranslations('introOverlay');
   const [mounted, setMounted] = useState(false);
   const [vh, setVh] = useState(700);
   const [isMobile, setIsMobile] = useState(false);
@@ -17,13 +19,8 @@ export function IntroOverlay() {
   const scale        = useTransform(scrollY, [0, END * 0.75],         [1, maxScale]);
   const sheepOpacity = useTransform(scrollY, [END * 0.4, END * 0.75], [1, 0]);
   const hintOpacity  = useTransform(scrollY, [0, END * 0.18],         [1, 0]);
+  const overlayY     = useTransform(scrollY, [END * 0.4, END * 0.75], ['0%', '100%']);
 
-  // Overlay e ovelha terminam juntos: ambos em END * 0.75.
-  // translateY 0% → 100% = overlay desce para fora, hero aparece de cima para baixo.
-  // Sem compositing: hero sempre 100% brilhante.
-  const overlayY = useTransform(scrollY, [END * 0.4, END * 0.75], ['0%', '100%']);
-
-  // Esconde via DOM quando sai completamente
   useMotionValueEvent(scrollY, 'change', (v) => {
     if (divRef.current) {
       divRef.current.style.visibility = v >= END ? 'hidden' : 'visible';
@@ -65,7 +62,7 @@ export function IntroOverlay() {
         className="absolute bottom-12 flex flex-col items-center gap-2"
       >
         <span className="text-xs text-gray-500 tracking-widest uppercase">
-          Role para explorar
+          {t('scrollHint')}
         </span>
         <motion.div
           animate={{ y: [0, 6, 0] }}

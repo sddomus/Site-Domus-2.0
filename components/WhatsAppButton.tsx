@@ -1,19 +1,20 @@
 'use client';
 
+import { useTranslations } from 'next-intl';
+
 export function WhatsAppButton() {
+  const t = useTranslations('whatsapp');
+
   return (
     <a
-      href="https://wa.me/5553991662468?text=Olá%2C%20gostaria%20de%20saber%20mais%20sobre%20os%20serviços%20da%20Domus!"
+      href={`https://wa.me/5553991662468?text=${t('message')}`}
       target="_blank"
       rel="noopener noreferrer"
-      aria-label="Fale conosco no WhatsApp"
+      aria-label={t('ariaLabel')}
       className="fixed bottom-6 right-6 z-50 group"
     >
       <div className="relative flex items-center justify-center w-14 h-14 rounded-full bg-[#25D366] shadow-[0_4px_24px_rgba(37,211,102,0.4)] hover:scale-110 hover:shadow-[0_4px_32px_rgba(37,211,102,0.6)] transition-all duration-300">
-        {/* Ping animation */}
         <span className="absolute inset-0 rounded-full bg-[#25D366] animate-ping opacity-25" />
-
-        {/* WhatsApp icon */}
         <svg
           viewBox="0 0 24 24"
           fill="white"
@@ -24,9 +25,8 @@ export function WhatsAppButton() {
         </svg>
       </div>
 
-      {/* Tooltip */}
       <span className="absolute right-16 top-1/2 -translate-y-1/2 bg-[#080028] text-white text-xs font-medium px-3 py-1.5 rounded-lg whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity duration-200 shadow-lg border border-[#FFCC99]/10 pointer-events-none">
-        Fale conosco
+        {t('tooltip')}
       </span>
     </a>
   );

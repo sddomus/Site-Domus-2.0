@@ -1,0 +1,274 @@
+{
+  "metadata": {
+    "title": "Domus Digital Solutions | Low-Code Development & AI",
+    "description": "Agency specialized in low-code development, apps, internal systems and AI agents. We deliver in weeks what others take months.",
+    "ogTitle": "Domus Digital Solutions | Low-Code Development & AI",
+    "ogDescription": "Agency specialized in low-code development, apps, internal systems and AI agents. We deliver in weeks what others take months.",
+    "ogSiteName": "Domus Digital Solutions"
+  },
+  "header": {
+    "nav": {
+      "services": "Services",
+      "about": "About Us",
+      "methodology": "Methodology",
+      "cases": "Success Cases"
+    },
+    "cta": "Talk to an Expert"
+  },
+  "introOverlay": {
+    "scrollHint": "Scroll to explore"
+  },
+  "hero": {
+    "badge": "Specialized Low-Code & AI Agency",
+    "headline": "Digital Innovation at",
+    "typewriterPhrases": ["High Speed", "Real Results", "Record Time", "Maximum Precision"],
+    "description": "We accelerate your business transformation with tailor-made solutions, conversion-focused design and cutting-edge technology.",
+    "ctaPrimary": "Talk to an Expert",
+    "ctaSecondary": "View Success Cases",
+    "terminal": {
+      "steps": [
+        { "text": "$ npm run build", "color": "text-gray-400" },
+        { "text": "✓ Dependencies resolved", "color": "text-emerald-400" },
+        { "text": "✓ Components compiled", "color": "text-emerald-400" },
+        { "text": "✓ Assets optimized", "color": "text-emerald-400" },
+        { "text": "✓ Tests: 24/24 passed", "color": "text-emerald-400" },
+        { "text": "✓ Build completed in 4.2s", "color": "text-emerald-400" },
+        { "text": "🚀 Deployed to production!", "color": "text-[#FFCC99] font-semibold" }
+      ],
+      "metricsLabel": "Live metrics",
+      "metrics": {
+        "responseTime": "Response time",
+        "performance": "Performance",
+        "uptime": "Uptime",
+        "requestsPerMin": "Requests/min"
+      }
+    },
+    "aiCard": {
+      "agentName": "Domus Agent",
+      "prompt": "Create a customer service agent for e-commerce",
+      "response": "Sure! I'll set up an agent with context memory, CRM integration and real-time responses..."
+    },
+    "velocityCard": {
+      "label": "Speed",
+      "days": "21 days",
+      "subtitle": "average\ndelivery"
+    }
+  },
+  "services": {
+    "sectionTitle": "Our",
+    "sectionTitleHighlight": "Specialties",
+    "sectionDescription": "We develop robust solutions with conversion-focused design, using the best technologies on the market.",
+    "learnMore": "Learn more",
+    "internalSystems": {
+      "title": "Internal Systems",
+      "description": "Automate processes and centralize your company's management with custom ERPs and CRMs, built to scale alongside your business."
+    },
+    "customApps": {
+      "title": "Custom Apps",
+      "description": "Responsive mobile and web applications with intuitive interfaces and high performance to engage your users."
+    },
+    "websites": {
+      "title": "High-Conversion Websites",
+      "description": "Ultra-fast landing pages and institutional websites, SEO-optimized and focused on turning visitors into customers."
+    },
+    "aiAgents": {
+      "title": "Autonomous AI Agents",
+      "description": "We build artificial intelligence agents capable of reasoning, making decisions and executing complex workflows autonomously and continuously."
+    }
+  },
+  "about": {
+    "badge": "Our Story",
+    "headline": "We were born to turn ideas into software that drives results.",
+    "p1": "Domus was born out of frustration with projects that take too long, cost too much and deliver too little. We brought together specialists in low-code, AI and design to build a different kind of agency: focused on real speed, genuine quality and long-term partnerships.",
+    "p2": "Today we serve companies of all sizes, from early-stage startups to corporations looking to modernize internal processes — always with the same commitment: deliver value fast and build solid foundations to scale.",
+    "values": {
+      "speed": {
+        "title": "Speed",
+        "description": "We deliver in weeks what the market takes months. No bureaucracy, no delays."
+      },
+      "precision": {
+        "title": "Precision",
+        "description": "Every line of code and every design decision exists to serve one goal: your business results."
+      },
+      "partnership": {
+        "title": "Partnership",
+        "description": "We're not just vendors — we're the tech team your company needs to grow."
+      }
+    }
+  },
+  "whyChooseUs": {
+    "badge": "The Domus Method",
+    "headlineStart": "Months of development delivered in",
+    "headlineEnd": "weeks.",
+    "description": "We're not just coders. We combine the speed of modern platforms with clean-code architectures to deliver the software your business needs today, not next year.",
+    "items": {
+      "speed": {
+        "title": "Extreme Speed",
+        "description": "We use modern frameworks and agile methodologies to accelerate your product's time-to-market without compromising quality."
+      },
+      "security": {
+        "title": "Enterprise Security",
+        "description": "Robust architectures with industry-leading security practices, ensuring the protection of your company's and customers' data."
+      },
+      "scalability": {
+        "title": "Scalability",
+        "description": "Systems built to grow. We lay solid foundations that handle increased traffic and data volume without bottlenecks."
+      },
+      "uiux": {
+        "title": "Premium UI/UX",
+        "description": "Stunning and intuitive interfaces focused on the user journey, maximizing retention and conversion rates."
+      }
+    }
+  },
+  "stats": {
+    "projects": "Projects",
+    "satisfaction": "Satisfaction",
+    "years": "Years",
+    "delays": "Delays",
+    "delaysValue": "Zero"
+  },
+  "portfolio": {
+    "badge": "Our Cases",
+    "title": "Success",
+    "titleHighlight": "Stories",
+    "description": "Real projects delivered for companies that trusted Domus to turn their challenges into digital solutions.",
+    "filters": {
+      "all": "All",
+      "webApps": "Web Apps",
+      "mobileApps": "Mobile Apps",
+      "education": "Education",
+      "management": "Management"
+    },
+    "viewCase": "View Full Case",
+    "projects": {
+      "conect-frota": {
+        "title": "Conect Frota System",
+        "category": "Management",
+        "sector": "Transportation",
+        "description": "Web and mobile platform for managing independent drivers (TAC), controlling fines, vehicle taxes and mandatory fleet licensing.",
+        "techs": ["Web Desktop", "Mobile", "Fleet Management"]
+      },
+      "monica-soltau": {
+        "title": "Mônica Soltau Portal",
+        "category": "Education",
+        "sector": "Ed-Tech",
+        "description": "Custom software and app for browsing and printing educational content aligned with BNCC, with user management by municipality, school and access profile.",
+        "techs": ["Web App", "Mobile", "BNCC"]
+      },
+      "sabbado": {
+        "title": "Sabbado Integrated Portal",
+        "category": "Web Apps",
+        "sector": "Public Procurement",
+        "description": "Integrated institutional portal with segmented navigation across the three fronts of Grupo Sabbado — Advisory, Consulting and Training in Public Procurement — under a single web address.",
+        "techs": ["Institutional Portal", "Multi-section", "SEO"]
+      },
+      "hk-midia": {
+        "title": "HK Mídia Platform",
+        "category": "Mobile Apps",
+        "sector": "Education & Health",
+        "description": "Web and mobile application for managing an education program: monitoring families, students and schools, with integrated communication between students, families, teachers and health professionals.",
+        "techs": ["Web App", "Mobile", "Multi-profile"]
+      },
+      "escola-tem-voz": {
+        "title": "My School Has a Voice",
+        "category": "Education",
+        "sector": "GovTech",
+        "description": "Web application with multi-language support, configurable forms, reminder sending, access profiles for the Department of Education, usage metrics and an analytical dashboard.",
+        "techs": ["Web App", "Multi-language", "Dashboard"]
+      }
+    }
+  },
+  "faq": {
+    "title": "Frequently",
+    "titleHighlight": "Asked Questions",
+    "items": [
+      {
+        "question": "What is the average delivery timeline?",
+        "answer": "Our focus is speed without sacrificing quality. Landing pages and institutional websites average 2 to 4 weeks. Internal systems and complex apps range from 6 to 12 weeks depending on scope."
+      },
+      {
+        "question": "Do you offer post-launch support?",
+        "answer": "Absolutely! We believe in long-term partnerships. We offer maintenance and ongoing support packages to ensure your software keeps scaling and performing at its best."
+      },
+      {
+        "question": "How does low-code development work?",
+        "answer": "We use modern platforms that accelerate the creation of interfaces and business logic, combined with custom code (Next.js, Node.js) where performance and uniqueness are critical. It's the best of both worlds."
+      },
+      {
+        "question": "Are AI agents safe for my company's data?",
+        "answer": "Absolutely. We implement AI architectures with data isolation, ensuring your company's information is never used to train public models. Security and privacy are our top priorities."
+      }
+    ]
+  },
+  "contact": {
+    "headline": "Let's turn your idea into",
+    "headlineHighlight": "software?",
+    "description": "Whether it's a disruptive app or a custom AI agent, the first step is a strategic conversation. Fill out the form and we'll get in touch.",
+    "emailLabel": "Email",
+    "whatsappLabel": "WhatsApp",
+    "locationLabel": "Location",
+    "locationValue": "Global / Remote Service",
+    "form": {
+      "nameLabel": "Full Name",
+      "namePlaceholder": "What should we call you?",
+      "emailLabel": "Business Email",
+      "emailPlaceholder": "you@email.com",
+      "phoneLabel": "Phone Number",
+      "phonePlaceholder": "(XXX) XXX-XXXX",
+      "subjectLabel": "Subject / Service",
+      "subjectPlaceholder": "Select the desired service...",
+      "subjectOptions": {
+        "internalSystems": "Internal Systems (ERPs/CRMs)",
+        "customApps": "Custom Apps",
+        "websites": "High-Conversion Websites",
+        "aiAgents": "AI Agents",
+        "other": "Other"
+      },
+      "messageLabel": "Message",
+      "messagePlaceholder": "Tell us a little about your project...",
+      "submit": "Send Message",
+      "submitting": "Sending...",
+      "success": "Message sent successfully!",
+      "emailSubject": "New contact from {name} — {subject}"
+    }
+  },
+  "cta": {
+    "headline": "Ready to scale your operation?",
+    "description": "Join the companies that have already accelerated their digital transformation with Domus. Schedule a free consultation and discover your business's potential.",
+    "button": "Schedule Free Consultation",
+    "socialProof": "Join the",
+    "socialProofHighlight": "Domus ecosystem"
+  },
+  "footer": {
+    "mission": "Turning vision into digital reality. We specialize in creating high-performance software solutions and conversion-focused design.",
+    "companyColumn": "Company",
+    "servicesColumn": "Services",
+    "nav": {
+      "about": "About Us",
+      "methodology": "Methodology",
+      "cases": "Success Cases",
+      "contact": "Contact"
+    },
+    "services": {
+      "internalSystems": "Internal Systems",
+      "customApps": "Custom Apps",
+      "websites": "High-Conversion Websites",
+      "aiAgents": "AI Agents"
+    },
+    "copyright": "All rights reserved.",
+    "privacy": "Privacy",
+    "terms": "Terms of Use"
+  },
+  "whatsapp": {
+    "tooltip": "Chat with us",
+    "ariaLabel": "Chat with us on WhatsApp",
+    "message": "Hello%2C%20I'd%20like%20to%20know%20more%20about%20Domus%20services!"
+  },
+  "portfolioPage": {
+    "backLink": "Back to Cases",
+    "galleryTitle": "Project Gallery",
+    "ctaText": "Want a project like this for your business?",
+    "ctaButton": "Talk to an Expert",
+    "imagesComingSoon": "Images coming soon — add screenshots in"
+  }
+}

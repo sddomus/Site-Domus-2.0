@@ -2,6 +2,7 @@
 
 import { useEffect, useState, useRef } from 'react';
 import { useInView } from 'motion/react';
+import { useTranslations } from 'next-intl';
 
 function Counter({ from, to, duration = 2, suffix = '' }: { from: number, to: number, duration?: number, suffix?: string }) {
   const [count, setCount] = useState(from);
@@ -27,21 +28,20 @@ function Counter({ from, to, duration = 2, suffix = '' }: { from: number, to: nu
   }, [isInView, from, to, duration]);
 
   return (
-    <span
-      ref={ref}
-      className={`transition-all duration-500 ${done ? 'animate-text-glow' : ''}`}
-    >
+    <span ref={ref} className={`transition-all duration-500 ${done ? 'animate-text-glow' : ''}`}>
       {count}{suffix}
     </span>
   );
 }
 
 export function Stats() {
+  const t = useTranslations('stats');
+
   const stats = [
-    { value: 5, suffix: '+', label: 'Projetos' },
-    { value: 98, suffix: '%', label: 'Satisfação' },
-    { value: 3, suffix: '+', label: 'Anos' },
-    { value: 0, suffix: '', label: 'Atrasos', textValue: 'Zero' },
+    { value: 5, suffix: '+', labelKey: 'projects' },
+    { value: 98, suffix: '%', labelKey: 'satisfaction' },
+    { value: 3, suffix: '+', labelKey: 'years' },
+    { value: 0, suffix: '', labelKey: 'delays', textValue: t('delaysValue') },
   ];
 
   return (
@@ -54,7 +54,7 @@ export function Stats() {
                 {stat.textValue ? stat.textValue : <Counter from={0} to={stat.value} suffix={stat.suffix} />}
               </div>
               <div className="text-sm md:text-base text-gray-400 font-medium uppercase tracking-widest group-hover:text-[#FFCC99]/60 transition-colors duration-300">
-                {stat.label}
+                {t(stat.labelKey as 'projects' | 'satisfaction' | 'years' | 'delays')}
               </div>
             </div>
           ))}

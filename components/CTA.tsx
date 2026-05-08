@@ -1,12 +1,14 @@
 'use client';
 
 import { motion } from 'motion/react';
-import Link from 'next/link';
+import { Link } from '@/lib/navigation';
+import { useTranslations } from 'next-intl';
 
 export function CTA() {
+  const t = useTranslations('cta');
+
   return (
     <section className="relative overflow-hidden py-32 px-6">
-      {/* Aurora background */}
       <motion.div
         className="absolute top-1/2 left-1/3 -translate-y-1/2 w-[400px] h-[400px] rounded-full blur-[140px] opacity-[0.025] pointer-events-none bg-[#FFCC99]"
         animate={{ x: [0, 40, -20, 0], y: [0, -30, 15, 0] }}
@@ -26,22 +28,21 @@ export function CTA() {
         className="relative z-10 max-w-4xl mx-auto text-center flex flex-col items-center"
       >
         <h2 className="text-5xl md:text-6xl font-bold tracking-tighter text-white">
-          Pronto para escalar sua operação?
+          {t('headline')}
         </h2>
 
         <p className="text-xl text-gray-400 max-w-2xl mx-auto mt-6 mb-12 font-light leading-relaxed">
-          Junte-se às empresas que já aceleraram sua transformação digital com a Domus. Agende uma consultoria gratuita e descubra o potencial do seu negócio.
+          {t('description')}
         </p>
 
         <Link
           href="#contato"
           className="relative overflow-hidden inline-block bg-[#FFCC99] text-[#080028] font-bold px-10 py-5 rounded-full text-lg hover:scale-105 hover:shadow-[0_0_30px_rgba(255,204,153,0.3)] transition-all duration-300 group"
         >
-          <span className="relative z-10">Agendar Consultoria Gratuita</span>
+          <span className="relative z-10">{t('button')}</span>
           <div className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/40 to-transparent animate-shimmer" />
         </Link>
 
-        {/* Social Proof */}
         <div className="mt-12 flex flex-col items-center gap-4">
           <div className="flex -space-x-3">
             {['CS', 'MC', 'RA', 'FB'].map((initials, i) => (
@@ -58,7 +59,7 @@ export function CTA() {
             ))}
           </div>
           <p className="text-sm text-gray-400 font-medium">
-            Faça parte do <span className="text-[#FFCC99]">ecossistema Domus</span>
+            {t('socialProof')} <span className="text-[#FFCC99]">{t('socialProofHighlight')}</span>
           </p>
         </div>
       </motion.div>

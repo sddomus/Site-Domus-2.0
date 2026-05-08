@@ -1,21 +1,19 @@
 'use client';
 
 import { motion } from 'motion/react';
-import Link from 'next/link';
+import { Link } from '@/lib/navigation';
 import { ArrowRight, Zap } from 'lucide-react';
 import { useEffect, useState, useRef } from 'react';
+import { useTranslations } from 'next-intl';
 
-/* ── Typewriter ── */
-const TYPEWRITER_PHRASES = ['Alta Velocidade', 'Resultados Reais', 'Tempo Recorde', 'Máxima Precisão'];
-
-function TypewriterText() {
+function TypewriterText({ phrases }: { phrases: string[] }) {
   const [displayed, setDisplayed] = useState('');
   const [phraseIndex, setPhraseIndex] = useState(0);
   const [isDeleting, setIsDeleting] = useState(false);
   const timeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   useEffect(() => {
-    const current = TYPEWRITER_PHRASES[phraseIndex];
+    const current = phrases[phraseIndex];
     const speed = isDeleting ? 50 : 80;
 
     if (!isDeleting && displayed === current) {
@@ -24,7 +22,7 @@ function TypewriterText() {
     }
     if (isDeleting && displayed === '') {
       setIsDeleting(false);
-      setPhraseIndex(i => (i + 1) % TYPEWRITER_PHRASES.length);
+      setPhraseIndex(i => (i + 1) % phrases.length);
       return;
     }
 
@@ -36,7 +34,7 @@ function TypewriterText() {
     }, speed);
 
     return () => { if (timeoutRef.current) clearTimeout(timeoutRef.current); };
-  }, [displayed, isDeleting, phraseIndex]);
+  }, [displayed, isDeleting, phraseIndex, phrases]);
 
   return (
     <span className="animate-gradient-text">
@@ -46,36 +44,27 @@ function TypewriterText() {
   );
 }
 
-/* ── Terminal de Deploy ── */
-// layout: fills full height of right column
-const BUILD_STEPS = [
-  { text: '$ npm run build', color: 'text-gray-400' },
-  { text: '✓ Dependências resolvidas', color: 'text-emerald-400' },
-  { text: '✓ Componentes compilados', color: 'text-emerald-400' },
-  { text: '✓ Assets otimizados', color: 'text-emerald-400' },
-  { text: '✓ Testes: 24/24 passed', color: 'text-emerald-400' },
-  { text: '✓ Build concluído em 4.2s', color: 'text-emerald-400' },
-  { text: '🚀 Deploy em produção!', color: 'text-[#FFCC99] font-semibold' },
-];
-
 function TerminalCard() {
+  const t = useTranslations('hero.terminal');
+  const steps = t.raw('steps') as { text: string; color: string }[];
+
   const [visibleLines, setVisibleLines] = useState(1);
   const [done, setDone] = useState(false);
 
   useEffect(() => {
-    if (visibleLines < BUILD_STEPS.length) {
-      const delay = visibleLines === 0 ? 500 : visibleLines === BUILD_STEPS.length - 1 ? 600 : 380;
-      const t = setTimeout(() => setVisibleLines(v => v + 1), delay);
-      return () => clearTimeout(t);
+    if (visibleLines < steps.length) {
+      const delay = visibleLines === 0 ? 500 : visibleLines === steps.length - 1 ? 600 : 380;
+      const timer = setTimeout(() => setVisibleLines(v => v + 1), delay);
+      return () => clearTimeout(timer);
     } else {
-      const t = setTimeout(() => {
+      const timer = setTimeout(() => {
         setDone(false);
         setVisibleLines(1);
       }, 4000);
       setDone(true);
-      return () => clearTimeout(t);
+      return () => clearTimeout(timer);
     }
-  }, [visibleLines]);
+  }, [visibleLines, steps.length]);
 
   return (
     <motion.div
@@ -83,7 +72,6 @@ function TerminalCard() {
       transition={{ duration: 6, repeat: Infinity, ease: 'easeInOut' }}
       className="h-full glass-effect glow-border rounded-2xl p-5 shadow-2xl font-mono flex flex-col"
     >
-      {/* Terminal header */}
       <div className="flex items-center gap-1.5 mb-4">
         <div className="w-2.5 h-2.5 rounded-full bg-red-500/60" />
         <div className="w-2.5 h-2.5 rounded-full bg-yellow-500/60" />
@@ -92,9 +80,8 @@ function TerminalCard() {
         {done && <span className="ml-auto text-xs text-emerald-400 animate-pulse">● live</span>}
       </div>
 
-      {/* Lines */}
       <div className="flex flex-col gap-1.5">
-        {BUILD_STEPS.slice(0, visibleLines).map((step, i) => (
+        {steps.slice(0, visibleLines).map((step, i) => (
           <motion.div
             key={`${step.text}-${visibleLines}`}
             initial={{ opacity: 0, x: -6 }}
@@ -105,12 +92,11 @@ function TerminalCard() {
             {step.text}
           </motion.div>
         ))}
-        {visibleLines < BUILD_STEPS.length && (
+        {visibleLines < steps.length && (
           <span className="text-xs text-gray-500 animate-pulse">▋</span>
         )}
       </div>
 
-      {/* Post-deploy metrics */}
       {done && (
         <motion.div
           initial={{ opacity: 0, y: 8 }}
@@ -118,22 +104,22 @@ function TerminalCard() {
           transition={{ duration: 0.5, delay: 0.3 }}
           className="mt-4 pt-4 border-t border-[#FFCC99]/10 flex flex-col gap-3 flex-1"
         >
-          <p className="text-[10px] text-gray-500 uppercase tracking-widest">Métricas ao vivo</p>
+          <p className="text-[10px] text-gray-500 uppercase tracking-widest">{t('metricsLabel')}</p>
           {[
-            { label: 'Tempo de resposta', value: '142ms', bar: 85, color: 'bg-emerald-400' },
-            { label: 'Performance', value: '98/100', bar: 98, color: 'bg-[#FFCC99]' },
-            { label: 'Uptime', value: '99.9%', bar: 99, color: 'bg-emerald-400' },
-            { label: 'Requests/min', value: '1.2k', bar: 60, color: 'bg-blue-400' },
+            { labelKey: 'responseTime', value: '142ms', bar: 85, color: 'bg-emerald-400' },
+            { labelKey: 'performance', value: '98/100', bar: 98, color: 'bg-[#FFCC99]' },
+            { labelKey: 'uptime', value: '99.9%', bar: 99, color: 'bg-emerald-400' },
+            { labelKey: 'requestsPerMin', value: '1.2k', bar: 60, color: 'bg-blue-400' },
           ].map((m, i) => (
             <motion.div
-              key={m.label}
+              key={m.labelKey}
               initial={{ opacity: 0, x: -8 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ delay: 0.4 + i * 0.12 }}
               className="flex flex-col gap-1"
             >
               <div className="flex justify-between items-center">
-                <span className="text-[10px] text-gray-500">{m.label}</span>
+                <span className="text-[10px] text-gray-500">{t(`metrics.${m.labelKey}`)}</span>
                 <span className="text-[10px] text-white font-medium">{m.value}</span>
               </div>
               <div className="w-full h-1 bg-white/5 rounded-full overflow-hidden">
@@ -152,34 +138,34 @@ function TerminalCard() {
   );
 }
 
-/* ── AI Streaming ── */
-const AI_PROMPT = 'Crie um agente de atendimento para e-commerce';
-const AI_RESPONSE = 'Claro! Vou configurar um agente com memória de contexto, integração ao seu CRM e respostas em tempo real...';
-
 function AIStreamCard() {
+  const t = useTranslations('hero.aiCard');
+  const aiPrompt = t('prompt');
+  const aiResponse = t('response');
+
   const [phase, setPhase] = useState<'prompt' | 'thinking' | 'response'>('prompt');
   const [responseText, setResponseText] = useState('');
   const charRef = useRef(0);
 
   useEffect(() => {
-    let t: ReturnType<typeof setTimeout>;
+    let timer: ReturnType<typeof setTimeout>;
 
     if (phase === 'prompt') {
-      t = setTimeout(() => setPhase('thinking'), 2200);
+      timer = setTimeout(() => setPhase('thinking'), 2200);
     } else if (phase === 'thinking') {
-      t = setTimeout(() => { setPhase('response'); charRef.current = 0; setResponseText(''); }, 1200);
+      timer = setTimeout(() => { setPhase('response'); charRef.current = 0; setResponseText(''); }, 1200);
     } else {
-      if (charRef.current < AI_RESPONSE.length) {
-        t = setTimeout(() => {
+      if (charRef.current < aiResponse.length) {
+        timer = setTimeout(() => {
           charRef.current += 1;
-          setResponseText(AI_RESPONSE.slice(0, charRef.current));
+          setResponseText(aiResponse.slice(0, charRef.current));
         }, 28);
       } else {
-        t = setTimeout(() => { setPhase('prompt'); setResponseText(''); }, 3500);
+        timer = setTimeout(() => { setPhase('prompt'); setResponseText(''); }, 3500);
       }
     }
-    return () => clearTimeout(t);
-  }, [phase, responseText]);
+    return () => clearTimeout(timer);
+  }, [phase, responseText, aiResponse]);
 
   return (
     <motion.div
@@ -191,16 +177,14 @@ function AIStreamCard() {
         <div className="w-6 h-6 rounded-full bg-[#FFCC99]/20 flex items-center justify-center">
           <span className="text-[10px] text-[#FFCC99]">AI</span>
         </div>
-        <span className="text-xs text-gray-400 font-medium">Agente Domus</span>
+        <span className="text-xs text-gray-400 font-medium">{t('agentName')}</span>
         <span className="ml-auto w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
       </div>
 
-      {/* Prompt bubble */}
       <div className="bg-white/5 rounded-xl rounded-bl-sm px-3 py-2 mb-2">
-        <p className="text-[10px] text-gray-400 leading-relaxed">{AI_PROMPT}</p>
+        <p className="text-[10px] text-gray-400 leading-relaxed">{aiPrompt}</p>
       </div>
 
-      {/* Response bubble */}
       <div className="bg-[#FFCC99]/10 rounded-xl rounded-tl-sm px-3 py-2 min-h-[44px]">
         {phase === 'thinking' ? (
           <div className="flex items-center gap-1 h-full py-1">
@@ -216,7 +200,7 @@ function AIStreamCard() {
         ) : (
           <p className="text-[10px] text-[#FFCC99] leading-relaxed">
             {responseText}
-            {phase === 'response' && charRef.current < AI_RESPONSE.length && (
+            {phase === 'response' && charRef.current < aiResponse.length && (
               <span className="inline-block w-[2px] h-[0.8em] bg-[#FFCC99] ml-0.5 align-middle animate-pulse" />
             )}
           </p>
@@ -226,8 +210,8 @@ function AIStreamCard() {
   );
 }
 
-/* ── Velocity Ring ── */
 function VelocityCard() {
+  const t = useTranslations('hero.velocityCard');
   const [progress, setProgress] = useState(0);
   const [cycle, setCycle] = useState(0);
   const circumference = 2 * Math.PI * 28;
@@ -266,7 +250,7 @@ function VelocityCard() {
       transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut', delay: 1.8 }}
       className="glass-effect glow-border rounded-2xl p-4 shadow-2xl"
     >
-      <p className="text-[10px] text-gray-400 mb-3 uppercase tracking-wider">Velocidade</p>
+      <p className="text-[10px] text-gray-400 mb-3 uppercase tracking-wider">{t('label')}</p>
       <div className="flex items-center gap-3">
         <div className="relative w-16 h-16 flex-shrink-0">
           <svg className="w-16 h-16 -rotate-90" viewBox="0 0 72 72">
@@ -287,15 +271,14 @@ function VelocityCard() {
           </div>
         </div>
         <div>
-          <p className="text-white font-bold text-sm leading-none mb-1">21 dias</p>
-          <p className="text-[10px] text-gray-500 leading-tight">entrega<br />média</p>
+          <p className="text-white font-bold text-sm leading-none mb-1">{t('days')}</p>
+          <p className="text-[10px] text-gray-500 leading-tight whitespace-pre-line">{t('subtitle')}</p>
         </div>
       </div>
     </motion.div>
   );
 }
 
-/* ── Floating Particles ── */
 const PARTICLES = Array.from({ length: 18 }, (_, i) => ({
   id: i,
   left: `${5 + (i * 17 + 11) % 90}%`,
@@ -306,11 +289,12 @@ const PARTICLES = Array.from({ length: 18 }, (_, i) => ({
   opacity: 0.2 + (i % 4) * 0.1,
 }));
 
-/* ── Hero ── */
 export function Hero() {
+  const t = useTranslations('hero');
+  const phrases = t.raw('typewriterPhrases') as string[];
+
   return (
     <section className="relative min-h-[80vh] flex items-center justify-center overflow-hidden px-6">
-
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
         {PARTICLES.map(p => (
           <div
@@ -329,7 +313,6 @@ export function Hero() {
       </div>
 
       <div className="max-w-7xl mx-auto w-full grid grid-cols-1 lg:grid-cols-2 gap-16 items-center relative z-10">
-        {/* Left Side */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -338,16 +321,16 @@ export function Hero() {
         >
           <div className="glass-effect glow-border px-4 py-2 rounded-full flex items-center gap-2">
             <Zap className="w-4 h-4 text-[#FFCC99]" />
-            <span className="text-sm font-medium text-gray-300">Agência Especializada Low-Code e IA</span>
+            <span className="text-sm font-medium text-gray-300">{t('badge')}</span>
           </div>
 
           <h1 className="text-5xl md:text-7xl font-bold tracking-tighter text-white leading-[1.1]">
-            Inovação Digital em <br />
-            <span className="block min-h-[2.5em] md:min-h-[1.2em]"><TypewriterText /></span>
+            {t('headline')} <br />
+            <span className="block min-h-[2.5em] md:min-h-[1.2em]"><TypewriterText phrases={phrases} /></span>
           </h1>
 
           <p className="text-lg text-gray-400 max-w-xl font-light leading-relaxed">
-            Aceleramos a transformação do seu negócio com soluções sob medida, design focado em conversão e tecnologia de ponta.
+            {t('description')}
           </p>
 
           <div className="flex flex-col sm:flex-row items-center gap-4 w-full sm:w-auto">
@@ -356,7 +339,7 @@ export function Hero() {
               className="relative overflow-hidden w-full sm:w-auto bg-[#FFCC99] text-[#080028] px-8 py-4 rounded-full text-base font-semibold hover:scale-105 hover:shadow-[0_0_30px_rgba(255,204,153,0.3)] transition-all duration-300 text-center flex items-center justify-center gap-2 group"
             >
               <span className="relative z-10 flex items-center gap-2">
-                Fale com um Especialista
+                {t('ctaPrimary')}
                 <ArrowRight className="w-5 h-5" />
               </span>
               <div className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/40 to-transparent animate-shimmer" />
@@ -365,12 +348,11 @@ export function Hero() {
               href="#casos-de-sucesso"
               className="w-full sm:w-auto px-8 py-4 rounded-full text-base font-semibold text-white border border-[#FFCC99]/30 hover:bg-[#FFCC99]/10 transition-all duration-300 text-center"
             >
-              Ver Casos de Sucesso
+              {t('ctaSecondary')}
             </Link>
           </div>
         </motion.div>
 
-        {/* Right Side: Cards */}
         <div className="hidden lg:grid grid-cols-[160px_1fr] gap-3 h-[460px]">
           <div className="flex flex-col gap-3">
             <VelocityCard />
