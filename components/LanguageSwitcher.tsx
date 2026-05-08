@@ -29,7 +29,7 @@ export function LanguageSwitcher() {
               : 'text-gray-400 hover:text-white'
           }`}
         >
-          {loc === 'pt-BR' ? 'PT' : 'EN'}
+          {loc === 'pt-BR' ? '🇧🇷' : '🇺🇸'}
         </button>
       ))}
     </div>
