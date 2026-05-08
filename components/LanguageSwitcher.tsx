@@ -3,6 +3,7 @@
 import { useLocale, useTranslations } from 'next-intl';
 import { usePathname, useRouter } from '@/lib/navigation';
 import { useTransition } from 'react';
+import Image from 'next/image';
 
 export function LanguageSwitcher() {
   const locale = useLocale();
@@ -29,8 +30,14 @@ export function LanguageSwitcher() {
               : 'text-gray-400 hover:text-white'
           }`}
         >
-          <span className="flex items-center gap-1">
-            <span className="text-base leading-none">{loc === 'pt-BR' ? '🇧🇷' : '🇺🇸'}</span>
+          <span className="flex items-center gap-1.5">
+            <Image
+              src={loc === 'pt-BR' ? '/flag-br.svg' : '/flag-us.svg'}
+              alt={loc === 'pt-BR' ? 'Bandeira do Brasil' : 'US Flag'}
+              width={20}
+              height={14}
+              className="rounded-sm object-cover"
+            />
             <span>{loc === 'pt-BR' ? 'BR' : 'US'}</span>
           </span>
         </button>
