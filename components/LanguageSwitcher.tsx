@@ -29,7 +29,10 @@ export function LanguageSwitcher() {
               : 'text-gray-400 hover:text-white'
           }`}
         >
-          {loc === 'pt-BR' ? '🇧🇷' : '🇺🇸'}
+          <span className="flex items-center gap-1">
+            <span className="text-base leading-none">{loc === 'pt-BR' ? '🇧🇷' : '🇺🇸'}</span>
+            <span>{loc === 'pt-BR' ? 'BR' : 'US'}</span>
+          </span>
         </button>
       ))}
     </div>
