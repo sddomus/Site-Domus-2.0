@@ -4,6 +4,7 @@ import { motion, useScroll, useTransform, useMotionValueEvent } from 'motion/rea
 import Image from 'next/image';
 import { useState, useEffect, useRef } from 'react';
 import { useTranslations } from 'next-intl';
+import { LanguageSwitcher } from '@/components/LanguageSwitcher';
 
 export function IntroOverlay() {
   const t = useTranslations('introOverlay');
@@ -55,6 +56,13 @@ export function IntroOverlay() {
             priority
           />
         </motion.div>
+      </motion.div>
+
+      <motion.div
+        style={{ opacity: hintOpacity }}
+        className="absolute top-6 right-6 pointer-events-auto"
+      >
+        <LanguageSwitcher />
       </motion.div>
 
       <motion.div
