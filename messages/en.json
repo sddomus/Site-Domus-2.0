@@ -203,11 +203,12 @@
   "contact": {
     "headline": "Let's turn your idea into",
     "headlineHighlight": "software?",
-    "description": "Whether it's a disruptive app or a custom AI agent, the first step is a strategic conversation. Fill out the form and we'll get in touch.",
+    "description": "Whether it's a disruptive app or a custom AI agent, the first step is a strategic conversation. Pick an available slot and schedule a meeting with us.",
     "emailLabel": "Email",
     "whatsappLabel": "WhatsApp",
     "locationLabel": "Location",
     "locationValue": "Global / Remote Service",
+    "calendarTitle": "Schedule a meeting with Domus",
     "form": {
       "nameLabel": "Full Name",
       "namePlaceholder": "What should we call you?",

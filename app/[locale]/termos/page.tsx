@@ -135,7 +135,7 @@ function TermsPT() {
         <h2 className="text-2xl font-semibold text-white mb-4">10. Contato</h2>
         <p>
           Para dúvidas, sugestões ou solicitações relacionadas a estes Termos, entre em contato pelo e-mail:{' '}
-          <a href="mailto:sddomus@gmail.com" className="text-[#FFCC99] hover:underline">sddomus@gmail.com</a>.
+          <a href="mailto:contato@grupo-domus.com" className="text-[#FFCC99] hover:underline">contato@grupo-domus.com</a>.
         </p>
       </section>
     </>
@@ -224,7 +224,7 @@ function TermsEN() {
         <h2 className="text-2xl font-semibold text-white mb-4">10. Contact</h2>
         <p>
           For questions, suggestions or requests related to these Terms, contact us at:{' '}
-          <a href="mailto:sddomus@gmail.com" className="text-[#FFCC99] hover:underline">sddomus@gmail.com</a>.
+          <a href="mailto:contato@grupo-domus.com" className="text-[#FFCC99] hover:underline">contato@grupo-domus.com</a>.
         </p>
       </section>
     </>

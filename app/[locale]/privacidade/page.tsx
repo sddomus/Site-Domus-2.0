@@ -63,7 +63,7 @@ function PrivacyPT() {
           <strong className="text-white">Domus Soluções Digitais</strong>, pessoa jurídica de direito privado, com sede em Pelotas/RS — Brasil, é a controladora dos dados pessoais coletados neste site, nos termos da <strong className="text-white">Lei nº 13.709/2018 (Lei Geral de Proteção de Dados — LGPD)</strong>.
         </p>
         <p className="mt-3">
-          Contato do responsável pelo tratamento de dados (DPO): <a href="mailto:sddomus@gmail.com" className="text-[#FFCC99] hover:underline">sddomus@gmail.com</a>
+          Contato do responsável pelo tratamento de dados (DPO): <a href="mailto:contato@grupo-domus.com" className="text-[#FFCC99] hover:underline">contato@grupo-domus.com</a>
         </p>
       </section>
 
@@ -131,7 +131,7 @@ function PrivacyPT() {
           <li>Opor-se ao tratamento em caso de descumprimento da LGPD</li>
         </ul>
         <p className="mt-3">
-          Para exercer seus direitos, entre em contato pelo e-mail: <a href="mailto:sddomus@gmail.com" className="text-[#FFCC99] hover:underline">sddomus@gmail.com</a>. Responderemos no prazo de <strong className="text-white">15 (quinze) dias corridos</strong>.
+          Para exercer seus direitos, entre em contato pelo e-mail: <a href="mailto:contato@grupo-domus.com" className="text-[#FFCC99] hover:underline">contato@grupo-domus.com</a>. Responderemos no prazo de <strong className="text-white">15 (quinze) dias corridos</strong>.
         </p>
       </section>
 
@@ -152,7 +152,7 @@ function PrivacyPT() {
       <section>
         <h2 className="text-2xl font-semibold text-white mb-4">9. Contato e Autoridade Nacional</h2>
         <p>
-          Em caso de dúvidas sobre esta Política ou sobre o tratamento de seus dados, entre em contato conosco pelo e-mail <a href="mailto:sddomus@gmail.com" className="text-[#FFCC99] hover:underline">sddomus@gmail.com</a>.
+          Em caso de dúvidas sobre esta Política ou sobre o tratamento de seus dados, entre em contato conosco pelo e-mail <a href="mailto:contato@grupo-domus.com" className="text-[#FFCC99] hover:underline">contato@grupo-domus.com</a>.
         </p>
         <p className="mt-3">
           Caso não obtenha resposta satisfatória, você pode acionar a <strong className="text-white">Autoridade Nacional de Proteção de Dados (ANPD)</strong> pelo portal <a href="https://www.gov.br/anpd" target="_blank" rel="noopener noreferrer" className="text-[#FFCC99] hover:underline">www.gov.br/anpd</a>.
@@ -171,7 +171,7 @@ function PrivacyEN() {
           <strong className="text-white">Domus Soluções Digitais</strong>, a privately held legal entity headquartered in Pelotas/RS — Brazil, is the controller of personal data collected on this website, pursuant to <strong className="text-white">Law No. 13.709/2018 (Lei Geral de Proteção de Dados — LGPD, Brazil&apos;s General Data Protection Law)</strong>.
         </p>
         <p className="mt-3">
-          Data Protection Officer (DPO) contact: <a href="mailto:sddomus@gmail.com" className="text-[#FFCC99] hover:underline">sddomus@gmail.com</a>
+          Data Protection Officer (DPO) contact: <a href="mailto:contato@grupo-domus.com" className="text-[#FFCC99] hover:underline">contato@grupo-domus.com</a>
         </p>
       </section>
 
@@ -239,7 +239,7 @@ function PrivacyEN() {
           <li>Object to processing in cases of non-compliance with the LGPD</li>
         </ul>
         <p className="mt-3">
-          To exercise your rights, contact us at: <a href="mailto:sddomus@gmail.com" className="text-[#FFCC99] hover:underline">sddomus@gmail.com</a>. We will respond within <strong className="text-white">15 (fifteen) calendar days</strong>.
+          To exercise your rights, contact us at: <a href="mailto:contato@grupo-domus.com" className="text-[#FFCC99] hover:underline">contato@grupo-domus.com</a>. We will respond within <strong className="text-white">15 (fifteen) calendar days</strong>.
         </p>
       </section>
 
@@ -260,7 +260,7 @@ function PrivacyEN() {
       <section>
         <h2 className="text-2xl font-semibold text-white mb-4">9. Contact and Supervisory Authority</h2>
         <p>
-          For questions about this Policy or the processing of your data, contact us at <a href="mailto:sddomus@gmail.com" className="text-[#FFCC99] hover:underline">sddomus@gmail.com</a>.
+          For questions about this Policy or the processing of your data, contact us at <a href="mailto:contato@grupo-domus.com" className="text-[#FFCC99] hover:underline">contato@grupo-domus.com</a>.
         </p>
         <p className="mt-3">
           If you do not receive a satisfactory response, you may contact the <strong className="text-white">Brazilian National Data Protection Authority (ANPD)</strong> at <a href="https://www.gov.br/anpd" target="_blank" rel="noopener noreferrer" className="text-[#FFCC99] hover:underline">www.gov.br/anpd</a>.

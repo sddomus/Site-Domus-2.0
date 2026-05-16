@@ -203,11 +203,12 @@
   "contact": {
     "headline": "Vamos transformar sua ideia em",
     "headlineHighlight": "software?",
-    "description": "Seja para um app disruptivo ou um agente de IA personalizado, o primeiro passo é uma conversa estratégica. Preencha o formulário e entraremos em contato.",
+    "description": "Seja para um app disruptivo ou um agente de IA personalizado, o primeiro passo é uma conversa estratégica. Escolha um horário disponível e agende uma reunião conosco.",
     "emailLabel": "E-mail",
     "whatsappLabel": "WhatsApp",
     "locationLabel": "Localização",
     "locationValue": "Atendimento Global / Remoto",
+    "calendarTitle": "Agendar horário com a Domus",
     "form": {
       "nameLabel": "Nome Completo",
       "namePlaceholder": "Como podemos te chamar?",
