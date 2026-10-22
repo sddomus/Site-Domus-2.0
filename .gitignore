@@ -5,3 +5,7 @@ coverage/
 *.log
 .env*
 !.env.example
+
+Key resend
+.env*
+!.env.example
